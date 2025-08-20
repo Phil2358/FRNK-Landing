@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF--8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FRNK – One hub. Consistent profiles.</title>
+
+  <!-- Link CSS and JS -->
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <main class="card">
+    <div class="top-row">
+      <h1 class="logo">
+        <span>F</span><span>R</span><span>N</span><span>K</span>
+      </h1>
+      <p class="domain">thefrnk.com</p>
+    </div>
+
+    <p class="tagline">
+      One hub.<br/>
+      Consistent profiles.
+    </p>
+
+    <!-- Button to reveal waitlist form -->
+    <button id="waitlist-btn" class="btn">Join Waitlist</button>
+
+    <!-- Waitlist form -->
+    <form id="waitlist-form" action="https://formspree.io/f/mwpqjbzv" method="POST">
+      <input type="email" name="email" placeholder="Enter your email" required />
+      <button type="submit">Notify Me</button>
+    </form>
+
+    <p class="handle">@frnk.global</p>
+  </main>
+</body>
+</html>
