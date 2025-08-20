@@ -5,11 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>FRNK – One hub. Consistent profiles.</title>
 
-  <!-- Correct paths -->
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <!-- Correct paths for Vercel public folder -->
+  <link rel="stylesheet" href="/styles.css">
+  <script src="/script.js" defer></script>
 </head>
-
 <body>
   <main class="card">
     <div class="top-row">
@@ -26,29 +25,13 @@
 
     <button id="waitlist-btn" class="btn">Join Waitlist</button>
 
-    <form id="waitlist-form" action="https://formspree.io/f/your-form-id" method="POST">
+    <form id="waitlist-form" action="https://formspree.io/f/mwpqjbzv" method="POST">
       <input type="email" name="email" placeholder="Enter your email" required />
       <button type="submit">Notify Me</button>
     </form>
 
     <p class="handle">@frnk.global</p>
   </main>
-
-  <script>
-    // Animate logo letters on load
-    document.querySelectorAll('.logo span').forEach((letter, i) => {
-      setTimeout(() => {
-        letter.classList.add('show');
-      }, i * 200);
-    });
-
-    // Waitlist form toggle
-    const btn = document.getElementById('waitlist-btn');
-    const form = document.getElementById('waitlist-form');
-    btn.addEventListener('click', () => {
-      form.classList.toggle('visible');
-      btn.style.display = 'none';
-    });
-  </script>
 </body>
 </html>
+
