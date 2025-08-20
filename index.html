@@ -1,71 +1,25 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>FRNK — One hub. Consistent profiles.</title>
-  <style>
-    :root {
-      --bg: #FCF7F2;
-      --ink: #111111;
-      --border: #E9DED5;
-      --accent: #2F7D6D;
-    }
-    body {
-      margin: 0;
-      font-family: sans-serif;
-      background: var(--bg);
-      color: var(--ink);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-    .wrap {
-      max-width: 400px;
-      text-align: center;
-      padding: 24px;
-    }
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 0.5em;
-    }
-    p {
-      margin-bottom: 1.5em;
-      color: rgba(17,17,17,0.7);
-    }
-    form {
-      display: grid;
-      gap: 12px;
-    }
-    input {
-      padding: 12px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: 1rem;
-    }
-    button {
-      background: var(--accent);
-      color: #fff;
-      border: none;
-      padding: 12px;
-      border-radius: 6px;
-      font-size: 1rem;
-      cursor: pointer;
-    }
-    button:hover {
-      background: #27675A;
-    }
-  </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FRNK.ai – One hub. Consistent profiles.</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <div class="wrap">
-    <h1>FRNK</h1>
-    <p>One hub. Consistent profiles.<br>Join the waitlist.</p>
-    <form action="https://formspree.io/f/mwpqjbzv" method="POST">
-      <input type="email" name="email" placeholder="you@domain.com" required />
-      <button type="submit">Join the waitlist</button>
-    </form>
-  </div>
-</body>
-</html>
+  <header class="header">
+    <div class="logo">FRNK<span>.ai</span></div>
+    <nav>
+      <a href="#how">How it works</a>
+      <a href="#waitlist" class="btn">Join Waitlist</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <h1>One hub.<br>Consistent profiles.</h1>
+    <p class="tagline">Auto + Assist your digital identity across LinkedIn, Instagram, Twitter & more.</p>
+    <a href="#waitlist" class="cta-btn">Join the Waitlist</a>
+  </section>
+
+  <section id="how" class="how">
+    <
