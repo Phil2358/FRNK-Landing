@@ -1,0 +1,138 @@
+/* --------- Monochrome Responsive Theme + A11y --------- */
+* { box-sizing: border-box; }
+:root {
+  --bg: #f8f8f6;
+  --text: #111111;
+  --muted: #6b6b6b;
+  --card: #ffffff;
+  --edge: #eaeaea;
+  --shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Screen-reader only utility */
+.visually-hidden {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(10px);
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity .35s ease, transform .35s ease, max-height .45s ease;
+}
+.visually-hidden.visible {
+  opacity: 1;
+  transform: translateY(0);
+  max-height: 200px;
+}
+
+.sr-status { position: absolute; left: -9999px; height: 1px; width: 1px; overflow: hidden; }
+
+.wrap {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(16px, 4vw, 48px) 16px;
+  position: relative;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 960px;
+  padding: clamp(20px, 3vw, 48px);
+  text-align: left;
+  animation: fadeUp .6s ease both;
+}
+
+.top-row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: clamp(12px, 2vw, 20px);
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-weight: 800;
+  letter-spacing: .01em;
+  display: inline-flex;
+  gap: .04em;
+  line-height: 1;
+  font-size: clamp(44px, 10vw, 110px);
+}
+.logo span { opacity: 0; transform: translateY(24px); display: inline-block; filter: blur(2px); }
+.logo span.show { opacity: 1; transform: translateY(0); filter: blur(0); transition: transform .45s ease, opacity .45s ease, filter .45s ease; }
+.logo:hover span { transform: translateY(-2px); }
+.logo:hover span:nth-child(2) { transform: translateY(-4px); }
+.logo:hover span:nth-child(3) { transform: translateY(-6px); }
+.logo:hover span:nth-child(4) { transform: translateY(-8px); }
+
+.domain { font-weight: 600; color: var(--muted); font-size: clamp(16px, 2.5vw, 22px); }
+
+.tagline { font-weight: 600; font-size: clamp(20px, 3.2vw, 30px); margin: 8px 0 16px; }
+
+.btn {
+  appearance: none;
+  background: #111;
+  color: #fff;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+}
+.btn:hover { background: #333; transform: translateY(-2px); box-shadow: 0 10px 22px rgba(0,0,0,0.35); }
+.btn-inline { padding: 12px 16px; }
+
+/* Form rows */
+.form-row { display: grid; grid-template-columns: 1fr auto; gap: 10px; }
+#waitlist-form input {
+  padding: 12px 14px;
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  font-size: 16px;
+  background: #fff;
+  color: var(--text);
+}
+.privacy { grid-column: 1 / -1; font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+/* Divider + How */
+.divider { border: 0; height: 1px; background: var(--edge); margin: clamp(16px, 3.5vw, 28px) 0 clamp(12px, 2.5vw, 20px); }
+.how-inline h2 { font-size: clamp(20px, 3vw, 26px); margin: 0 0 12px; }
+
+.steps { display: grid; grid-template-columns: 1fr; gap: 12px; }
+.step { border: 1px solid var(--edge); border-radius: 14px; padding: 14px; background: #fff; animation: fadeUp .5s ease both; }
+.step h3 { margin: 0 0 4px; font-size: clamp(16px, 2.5vw, 18px); }
+.step p { margin: 0; color: #2c2c2c; font-size: clamp(14px, 2.4vw, 16px); }
+@media (min-width: 860px) { .steps { grid-template-columns: repeat(3, 1fr); } }
+
+/* Footer */
+.handle { margin-top: clamp(14px, 2.5vw, 24px); font-weight: 600; color: #222; }
+.footer { text-align: center; padding: 24px 16px 48px; color: var(--muted); font-size: 14px; }
+
+/* Scroll cue (mobile only) */
+.scroll-cue { position: absolute; left: 50%; bottom: 10px; width: 22px; height: 22px; transform: translateX(-50%); opacity: .6; background: transparent; border-bottom: 3px solid #111; border-right: 3px solid #111; rotate: 45deg; animation: cueBob 1.6s ease-in-out infinite; display: none; }
+@media (max-width: 860px) { .scroll-cue { display: block; } }
+.scroll-cue.hide { opacity: 0; pointer-events: none; transition: opacity .35s ease; }
+
+/* Animations */
+@keyframes cueBob { 0%,100% { transform: translate(-50%,0) rotate(45deg);} 50% { transform: translate(-50%,6px) rotate(45deg);} }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(18px);} to { opacity: 1; transform: translateY(0);} }
