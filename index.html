@@ -4,57 +4,68 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>FRNK — One hub. Consistent profiles.</title>
-  <link rel="stylesheet" href="/styles.css" />
+  <style>
+    :root {
+      --bg: #FCF7F2;
+      --ink: #111111;
+      --border: #E9DED5;
+      --accent: #2F7D6D;
+    }
+    body {
+      margin: 0;
+      font-family: sans-serif;
+      background: var(--bg);
+      color: var(--ink);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+    .wrap {
+      max-width: 400px;
+      text-align: center;
+      padding: 24px;
+    }
+    h1 {
+      font-size: 2rem;
+      margin-bottom: 0.5em;
+    }
+    p {
+      margin-bottom: 1.5em;
+      color: rgba(17,17,17,0.7);
+    }
+    form {
+      display: grid;
+      gap: 12px;
+    }
+    input {
+      padding: 12px;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: 1rem;
+    }
+    button {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      padding: 12px;
+      border-radius: 6px;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+    button:hover {
+      background: #27675A;
+    }
+  </style>
 </head>
 <body>
-  <header class="site-header">
-    <div class="container nav">
-      <a href="#" class="brand">
-        <img src="/assets/logo.svg" alt="FRNK logo" width="88" height="28" />
-      </a>
-      <nav class="menu">
-        <a href="#features">Features</a>
-        <a href="#how">How it works</a>
-        <a href="#pricing">Pricing</a>
-        <a class="cta" href="#waitlist">Join waitlist</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <h1>One hub.<br />Consistent profiles.</h1>
-          <p>Sync your identity across every platform from one place.</p>
-          <a class="btn primary" href="#waitlist">Join the waitlist</a>
-        </div>
-      </div>
-    </section>
-  </main>
-  
-<section id="waitlist" class="waitlist">
-  <div class="container">
-    <h2>Join the waitlist</h2>
-    <p>Get early access and help shape FRNK. We’ll only email you about the product launch and major updates.</p>
-    <form id="wl-form" action="https://formspree.io/f/mwpqjbzv" method="POST">
-      <div class="form-row">
-        <label for="email">Email</label>
-        <input id="email" type="email" name="email" placeholder="you@domain.com" required>
-      </div>
-      <div class="form-row">
-        <label for="name">Name</label>
-        <input id="name" type="text" name="name" placeholder="Your name">
-      </div>
-      <button class="btn" type="submit">Request access</button>
+  <div class="wrap">
+    <h1>FRNK</h1>
+    <p>One hub. Consistent profiles.<br>Join the waitlist.</p>
+    <form action="https://formspree.io/f/mwpqjbzv" method="POST">
+      <input type="email" name="email" placeholder="you@domain.com" required />
+      <button type="submit">Join the waitlist</button>
     </form>
   </div>
-</section>
-
-  <footer class="site-footer">
-    <div class="container foot">
-      <span>© 2025 FRNK</span>
-    </div>
-  </footer>
 </body>
 </html>
