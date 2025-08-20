@@ -3,12 +3,116 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FRNK.ai – One hub. Consistent profiles.</title>
-  <link rel="stylesheet" href="style.css" />
+  <title>FRNK – One hub. Consistent profiles.</title>
+  <style>
+    :root {
+      --bg: #ffffff;
+      --text: #111111;
+      --accent: #3b82f6;
+      --bg-dark: #111111;
+      --text-dark: #f1f1f1;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg: var(--bg-dark);
+        --text: var(--text-dark);
+      }
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: "Inter", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+    /* Header */
+    .header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 2rem;
+    }
+    .logo { font-size: 1.5rem; font-weight: 700; }
+    .logo span { color: var(--accent); }
+    nav a {
+      margin-left: 1.5rem;
+      text-decoration: none;
+      color: var(--text);
+      font-weight: 500;
+    }
+    nav .btn {
+      padding: 0.5rem 1rem;
+      background: var(--accent);
+      color: white;
+      border-radius: 8px;
+    }
+    /* Hero */
+    .hero { text-align: center; padding: 6rem 2rem 4rem; }
+    .hero h1 { font-size: 3rem; font-weight: 800; }
+    .hero .tagline { margin-top: 1rem; font-size: 1.25rem; color: #555; }
+    .cta-btn {
+      margin-top: 2rem;
+      display: inline-block;
+      padding: 0.75rem 1.5rem;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+      border-radius: 10px;
+      text-decoration: none;
+    }
+    /* How */
+    .how { padding: 4rem 2rem; text-align: center; }
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    .step {
+      padding: 1rem;
+      border: 1px solid #e5e7eb;
+      border-radius: 12px;
+    }
+    /* Waitlist */
+    .waitlist {
+      padding: 4rem 2rem;
+      text-align: center;
+      background: #f9fafb;
+    }
+    .waitlist form {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .waitlist input {
+      padding: 0.75rem;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      width: 250px;
+    }
+    .waitlist button {
+      padding: 0.75rem 1.25rem;
+      background: var(--accent);
+      color: white;
+      font-weight: 600;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    /* Footer */
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
 </head>
 <body>
   <header class="header">
-    <div class="logo">FRNK<span>.ai</span></div>
+    <div class="logo">FRNK</div>
     <nav>
       <a href="#how">How it works</a>
       <a href="#waitlist" class="btn">Join Waitlist</a>
@@ -22,7 +126,7 @@
   </section>
 
   <section id="how" class="how">
-    <h2>How FRNK.ai works</h2>
+    <h2>How FRNK works</h2>
     <div class="steps">
       <div class="step">
         <h3>1. Connect</h3>
@@ -41,15 +145,15 @@
 
   <section id="waitlist" class="waitlist">
     <h2>Join the Waitlist</h2>
-    <p>Be the first to try FRNK.ai when we launch.</p>
-    <form action="https://formspree.io/f/mwpqjbzv" method="POST">
+    <p>Be the first to try FRNK when we launch.</p>
+    <form action="https://formspree.io/f/YOUR-ENDPOINT" method="POST">
       <input type="email" name="email" placeholder="Enter your email" required />
       <button type="submit">Join</button>
     </form>
   </section>
 
   <footer class="footer">
-    <p>© 2025 FRNK.ai – All rights reserved.</p>
+    <p>© 2025 FRNK – thefrnk.com</p>
   </footer>
 </body>
 </html>
