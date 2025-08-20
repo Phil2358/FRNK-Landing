@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FRNK – One hub. Consistent profiles.</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <nav class="nav">
+      <a href="#how" class="nav-link">How it Works</a>
+      <a href="#waitlist" class="nav-link">Waitlist</a>
+    </nav>
+  </header>
+
+  <main class="hero" id="hero">
+    <section class="card">
+      <div class="top-row">
+        <h1 class="logo" aria-label="FRNK">
+          <span>F</span><span>R</span><span>N</span><span>K</span>
+        </h1>
+        <p class="domain">thefrnk.com</p>
+      </div>
+
+      <p class="tagline">
+        One hub.<br/>Consistent profiles.
+      </p>
+
+      <button id="waitlist-btn" class="btn">Join Waitlist</button>
+
+      <form id="waitlist-form" action="https://formspree.io/f/mwpqjbzv" method="POST">
+        <input type="email" name="email" placeholder="Enter your email" aria-label="Email" required />
+        <button type="submit" class="btn small">Notify Me</button>
+        <p class="privacy">We’ll only email when we launch. No spam.</p>
+      </form>
+
+      <p class="handle">@frnk.global</p>
+    </section>
+  </main>
+
+  <section id="how" class="how">
+    <div class="how-container">
+      <h2>How it Works</h2>
+      <div class="steps">
+        <article class="step"><h3>1 · Connect</h3><p>Link your profiles — LinkedIn, Instagram, X, and more.</p></article>
+        <article class="step"><h3>2 · Sync</h3><p>Update once. FRNK assists and mirrors your identity everywhere.</p></article>
+        <article class="step"><h3>3 · Stay Polished</h3><p>Keep bios, photos, and links aligned across platforms.</p></article>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer" id="waitlist">
+    <p>© 2025 FRNK. All rights reserved.</p>
+  </footer>
+</body>
+</html>
