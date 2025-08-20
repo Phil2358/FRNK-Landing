@@ -1,17 +1,144 @@
 :root {
-  --sand-0: #FCF7F2;
-  --sand-1: #F2E7DE;
-  --sand-2: #E6D7CC;
-  --taupe-6: #B89E8D;
-  --ink: #111111;
-  --accent: #2F7D6D;
+  --bg: #ffffff;
+  --text: #111111;
+  --accent: #3b82f6;
+  --bg-dark: #111111;
+  --text-dark: #f1f1f1;
 }
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: var(--bg-dark);
+    --text: var(--text-dark);
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  margin:0; font-family:sans-serif; background:var(--sand-0); color:var(--ink);
+  font-family: "Inter", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
 }
-.container { width:90%; margin:0 auto; }
-.site-header { background:var(--sand-1); padding:16px 0; }
-.menu a { margin-left:16px; text-decoration:none; color:var(--ink); }
-.hero { padding:80px 0; text-align:center; }
-.btn { background:var(--ink); color:white; padding:12px 20px; border-radius:8px; text-decoration:none; }
-.site-footer { background:var(--sand-1); padding:20px; text-align:center; }
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+.logo span {
+  color: var(--accent);
+}
+
+nav a {
+  margin-left: 1.5rem;
+  text-decoration: none;
+  color: var(--text);
+  font-weight: 500;
+}
+
+nav .btn {
+  padding: 0.5rem 1rem;
+  background: var(--accent);
+  color: white;
+  border-radius: 8px;
+}
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 6rem 2rem 4rem;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 800;
+}
+
+.hero .tagline {
+  margin-top: 1rem;
+  font-size: 1.25rem;
+  color: #555;
+}
+
+.cta-btn {
+  margin-top: 2rem;
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  border-radius: 10px;
+  text-decoration: none;
+}
+
+/* How */
+.how {
+  padding: 4rem 2rem;
+  text-align: center;
+}
+
+.steps {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.step {
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+/* Waitlist */
+.waitlist {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: #f9fafb;
+}
+
+.waitlist form {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.waitlist input {
+  padding: 0.75rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  width: 250px;
+}
+
+.waitlist button {
+  padding: 0.75rem 1.25rem;
+  background: var(--accent);
+  color: white;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;
+  color: #888;
+}
