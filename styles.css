@@ -1,45 +1,156 @@
-/* FRNK Landing minimal styles */
-:root {
-  --ink: #222;
-  --paper: #ffffff;
-  --card: #f2f0ec;
-}
-
+/* --------- FRNK Monochrome (Centered, tuned spacing) --------- */
 * { box-sizing: border-box; }
-body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; background: var(--paper); color: var(--ink); margin: 0; }
-.container { max-width: 980px; margin: 0 auto; padding: 2rem; text-align: center; }
-
-.brand { display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 0.5rem; }
-.logo-box { width: 2rem; height: 2rem; border-radius: 0.75rem; background: var(--ink); }
-.brand-name { font-weight: 600; letter-spacing: 0.02em; }
-
-h1 { font-size: clamp(2rem, 4vw, 3rem); margin: 0.25rem 0 0; }
-.domain { opacity: 0.7; margin: 0.25rem 0 0; }
-
-.card { background: var(--card); border-radius: 1rem; padding: 1.25rem; margin: 1rem 0; text-align: left; box-shadow: 0 1px 4px rgba(0,0,0,0.04); }
-
-.waitlist-form { display: flex; flex-direction: column; gap: 0.5rem; }
-.waitlist-form input { padding: 0.75rem; border-radius: 0.5rem; border: 1px solid rgba(0,0,0,0.2); }
-.waitlist-form button { padding: 0.75rem; border-radius: 0.5rem; background: var(--ink); color: #fff; border: none; cursor: pointer; }
-.small { font-size: 0.8rem; }
-.subtle { opacity: 0.7; }
-
-.how-it-works { margin-top: 2.5rem; }
-.how-it-works h2 { font-size: clamp(1.5rem, 2.5vw, 2rem); margin-bottom: 0.5rem; }
-.section-blurb { opacity: 0.7; max-width: 640px; margin: 0.25rem auto 1.5rem; }
-
-.cards { display: grid; grid-template-columns: 1fr; gap: 1rem; }
-button.toggle { background: none; border: none; color: var(--ink); text-decoration: underline; cursor: pointer; margin-top: 0.5rem; padding: 0; font: inherit; }
-.hidden { display: none; }
-
-footer { font-size: 0.85rem; opacity: 0.6; margin-top: 3rem; }
-
-/* Desktop/tablet behavior: always expanded, hide toggle buttons */
-@media (min-width: 768px) {
-  .cards { display: flex; gap: 1rem; }
-  .card { flex: 1; }
-  .card .extra { display: block !important; }
-  .card button.toggle { display: none; }
-  .waitlist-form { flex-direction: row; }
-  .waitlist-form input { flex: 1; }
+:root {
+  --page: #ffffff;      /* white background */
+  --card: #f2f0ec;      /* light warm grey card */
+  --text: #222222;      /* chosen text color */
+  --muted: #6b6b6b;     /* secondary text */
+  --edge: #e4e1db;      /* divider / borders */
+  --shadow: 0 12px 32px rgba(0,0,0,0.08);
 }
+
+html, body { height: 100%; }
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--page);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.wrap {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: clamp(16px, 4vw, 48px);
+}
+
+.card {
+  background: var(--card);
+  border-radius: 22px;
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 880px;
+  padding: clamp(24px, 3vw, 56px);
+  text-align: center;                  /* centered content */
+  animation: fadeUp .6s ease both;
+}
+
+/* Logo & Domain */
+.logo {
+  font-weight: 800;
+  letter-spacing: .01em;
+  display: inline-flex;
+  gap: .04em;
+  line-height: 1;
+  font-size: clamp(56px, 10vw, 120px);
+  margin-bottom: clamp(6px, 1.6vw, 10px);   /* smaller gap to domain */
+}
+.logo span { opacity: 0; transform: translateY(24px); display: inline-block; filter: blur(2px); }
+.logo span.show { opacity: 1; transform: translateY(0); filter: blur(0); transition: transform .45s ease, opacity .45s ease, filter .45s ease; }
+.logo:hover span { transform: translateY(-2px); }
+.logo:hover span:nth-child(2) { transform: translateY(-4px); }
+.logo:hover span:nth-child(3) { transform: translateY(-6px); }
+.logo:hover span:nth-child(4) { transform: translateY(-8px); }
+
+.domain {
+  color: var(--muted);
+  font-weight: 600;
+  font-size: clamp(16px, 2.2vw, 20px);
+  margin: 0 0 clamp(10px, 1.8vw, 14px);
+}
+
+/* Tagline & Buttons */
+.tagline {
+  font-weight: 700;
+  font-size: clamp(22px, 3.2vw, 34px);
+  margin: 0 0 clamp(20px, 2.4vw, 26px);     /* slightly bigger gap above button */
+  line-height: 1.25;
+}
+
+.btn {
+  appearance: none;
+  background: #111;
+  color: #fff;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 12px;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+  transition: transform .2s ease, background .2s ease, box-shadow .2s ease;
+  margin-bottom: clamp(18px, 2.4vw, 22px);
+}
+.btn:hover { background: #333; transform: translateY(-2px); box-shadow: 0 12px 26px rgba(0,0,0,0.35); }
+.btn-inline { padding: 12px 16px; }
+
+/* Waitlist form (hidden -> visible) */
+.visually-hidden {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  justify-items: center;
+  gap: 10px;
+  opacity: 0;
+  transform: translateY(10px);
+  max-height: 0;
+  overflow: hidden;
+  transition: opacity .35s ease, transform .35s ease, max-height .45s ease;
+  margin-top: 6px;
+}
+.visually-hidden.visible { opacity: 1; transform: translateY(0); max-height: 220px; }
+
+.form-row { display: grid; grid-template-columns: 1fr auto; gap: 10px; width: min(560px, 100%); margin: 0 auto; }
+#waitlist-form input {
+  padding: 12px 14px;
+  border: 1px solid var(--edge);
+  border-radius: 10px;
+  font-size: 16px;
+  background: #fff;
+  color: var(--text);
+  width: 100%;
+}
+.visually-hidden-label { position: absolute; left: -9999px; width: 1px; height: 1px; overflow: hidden; }
+.sr-status { position: absolute; left: -9999px; height: 1px; width: 1px; overflow: hidden; }
+
+.privacy { grid-column: 1 / -1; font-size: 12px; color: var(--muted); margin-top: 4px; }
+
+/* Divider */
+.divider {
+  border: 0;
+  height: 1px;
+  background: var(--edge);
+  margin: clamp(24px, 3.2vw, 32px) 0 clamp(16px, 2.6vw, 22px);
+}
+
+/* HOW IT WORKS (always expanded + centered) */
+.how-title { font-size: clamp(20px, 3vw, 26px); margin: 0 0 clamp(12px, 1.8vw, 16px); font-weight: 800; }
+
+.steps {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+  padding-top: 6px;
+}
+.step {
+  border: 1px solid var(--edge);
+  border-radius: 14px;
+  padding: 16px;
+  background: #fff;
+  text-align: left;
+}
+.step h3 { margin: 0 0 6px; font-size: clamp(16px, 2.6vw, 18px); }
+.step p  { margin: 0; color: #2c2c2c; font-size: clamp(14px, 2.4vw, 16px); }
+
+/* Tablet/Desktop layout for steps */
+@media (min-width: 861px) {
+  .steps { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Footer */
+.handle { margin-top: clamp(16px, 2.6vw, 24px); font-weight: 700; color: #222; }
+.footer { text-align: center; padding: 24px 16px 48px; color: var(--muted); font-size: 14px; }
+
+/* Animations */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(18px);} to { opacity: 1; transform: translateY(0);} }
