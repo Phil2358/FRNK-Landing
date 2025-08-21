@@ -1,1 +1,1 @@
-// external JS placeholder (logic handled inline in index.html)
+// External JS placeholder; accordion handled inline in index.html
