@@ -19,3 +19,24 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// FRNK HIW accordion (robust, all devices)
+(function(){
+  function bindToggles(scope){
+    (scope || document).querySelectorAll('.hiw-toggle').forEach(function(btn){
+      if (btn.__frnkBound) return; btn.__frnkBound = true;
+      var targetId = btn.getAttribute('aria-controls');
+      var extra = document.getElementById(targetId);
+      if (!extra) return;
+      btn.addEventListener('click', function(){
+        var collapsed = extra.classList.contains('is-collapsed');
+        extra.classList.toggle('is-collapsed');
+        btn.setAttribute('aria-expanded', collapsed ? 'true' : 'false');
+        btn.textContent = collapsed ? 'Show less' : 'Tell me more';
+      });
+    });
+  }
+  if (document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', function(){ bindToggles(document); });
+  } else { bindToggles(document); }
+})();
