@@ -11,15 +11,14 @@
 <body>
   <main class="wrap">
     <section class="card" aria-labelledby="brand">
-      <div class="top-row">
-        <h1 class="logo" id="brand" aria-label="FRNK">
-          <span>F</span><span>R</span><span>N</span><span>K</span>
-        </h1>
-        <p class="domain">thefrnk.com</p>
-      </div>
+      <h1 class="logo" id="brand" aria-label="FRNK">
+        <span>F</span><span>R</span><span>N</span><span>K</span>
+      </h1>
+      <p class="domain">thefrnk.com</p>
 
       <p class="tagline">One hub.<br/>Uniform profiles.</p>
 
+      <!-- Waitlist trigger -->
       <button id="waitlist-btn"
               class="btn"
               aria-controls="waitlist-form"
@@ -27,6 +26,7 @@
         Join Waitlist
       </button>
 
+      <!-- Waitlist form -->
       <form id="waitlist-form"
             class="visually-hidden"
             action="https://formspree.io/f/mwpqjbzv"
@@ -43,6 +43,7 @@
 
       <hr class="divider" />
 
+      <!-- HOW IT WORKS (mobile collapsible; always open on tablet/desktop) -->
       <div id="how" class="how-inline" aria-label="How it Works">
         <button id="how-toggle" class="how-head" aria-expanded="false" aria-controls="how-steps">
           <h2>How it Works</h2>
