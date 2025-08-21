@@ -75,3 +75,34 @@ body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 Inter,syst
 .cta.expanded .field-wrapper{max-width:320px;margin-right:10px;}
 .cta input{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--edgeSoft, rgba(0,0,0,.08));background:#fff;min-width:0;}
 .cta .btn{padding:12px 22px;}
+
+
+/* === Logo animation === */
+.logo{display:inline-flex;gap:.04em;line-height:1;letter-spacing:.01em}
+.logo span{
+  display:inline-block;
+  opacity:0;
+  transform: translateY(12px) scale(.96) rotate(.4deg);
+  filter: blur(2px);
+  will-change: transform, opacity, filter;
+}
+body.logo-animate .logo span{ animation: frnkLogoIn .7s cubic-bezier(.2,.7,.3,1) forwards; }
+body.logo-animate .logo span:nth-child(1){ animation-delay: .00s; }
+body.logo-animate .logo span:nth-child(2){ animation-delay: .07s; }
+body.logo-animate .logo span:nth-child(3){ animation-delay: .14s; }
+body.logo-animate .logo span:nth-child(4){ animation-delay: .21s; }
+
+@keyframes frnkLogoIn{
+  0%   { opacity:0; transform: translateY(14px) scale(.94) rotate(.6deg); filter: blur(3px); }
+  70%  { opacity:1; transform: translateY(-2px) scale(1.03) rotate(0deg); filter: blur(0); }
+  100% { opacity:1; transform: translateY(0) scale(1) rotate(0deg); filter: blur(0); }
+}
+
+/* Subtle hover flourish without breaking layout */
+.logo:hover span{ transform: translateY(-1px) scale(1.02); transition: transform .18s ease; }
+
+/* Respect reduced motion */
+@media (prefers-reduced-motion: reduce){
+  .logo span{ opacity:1; transform:none; filter:none; animation:none !important; }
+}
+

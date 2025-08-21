@@ -12,7 +12,7 @@
 <body>
   <div class="page-card">
     <header class="hero">
-      <h1 class="logo">FRNK</h1>
+      <h1 class="logo" aria-label="FRNK"><span>F</span><span>R</span><span>N</span><span>K</span></h1>
       <p class="domain">thefrnk.com</p>
       <p class="tagline">One hub.<br/>Uniform profiles.</p>
       <form id="waitlist-form" action="https://formspree.io/f/mwpqjbzv" method="POST" class="cta" aria-label="Join waitlist form">  <div class="field-wrapper">    <input type="email" name="email" required placeholder="Enter your email" aria-label="Email address" />  </div>  <button type="button" id="waitlist-button" class="btn">Join Waitlist</button></form>
@@ -107,6 +107,22 @@
       });
     }
     if (document.readyState === 'loading'){document.addEventListener('DOMContentLoaded', initWaitlist);} else {initWaitlist();}
+  })();
+  </script>
+
+
+  <!-- Logo animation trigger -->
+  <script>
+  (function(){
+    function run(){
+      // Wait one frame to ensure layout is ready
+      requestAnimationFrame(function(){ document.body.classList.add('logo-animate'); });
+    }
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(run);
+    } else if (document.readyState === 'loading'){
+      document.addEventListener('DOMContentLoaded', run);
+    } else { run(); }
   })();
   </script>
 
