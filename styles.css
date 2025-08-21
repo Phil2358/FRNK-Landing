@@ -69,7 +69,9 @@ body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.55 Inter,syst
 .site-foot{text-align:center;margin-top:36px;opacity:.7}
 .handle{margin-top:6px;font-weight:700}
 
-/* Waitlist form */
+/* Animated waitlist form */
 .cta{display:flex;gap:10px;align-items:center;justify-content:center;flex-wrap:wrap;margin-top:8px;}
-.cta input{padding:12px 14px;border-radius:10px;border:1px solid var(--edgeSoft);min-width:260px;background:#fff;}
-.cta .btn{padding:12px 22px}
+.cta .field-wrapper{max-width:0;overflow:hidden;transition:max-width .4s ease, margin .4s ease;}
+.cta.expanded .field-wrapper{max-width:320px;margin-right:10px;}
+.cta input{width:100%;padding:12px 14px;border-radius:10px;border:1px solid var(--edgeSoft, rgba(0,0,0,.08));background:#fff;min-width:0;}
+.cta .btn{padding:12px 22px;}

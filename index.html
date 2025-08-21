@@ -15,7 +15,7 @@
       <h1 class="logo">FRNK</h1>
       <p class="domain">thefrnk.com</p>
       <p class="tagline">One hub.<br/>Uniform profiles.</p>
-      <form action="https://formspree.io/f/mwpqjbzv" method="POST" class="cta" aria-label="Join waitlist form">  <input type="email" name="email" required placeholder="Enter your email" aria-label="Email address" />  <button type="submit" class="btn">Join Waitlist</button></form>
+      <form id="waitlist-form" action="https://formspree.io/f/mwpqjbzv" method="POST" class="cta" aria-label="Join waitlist form">  <div class="field-wrapper">    <input type="email" name="email" required placeholder="Enter your email" aria-label="Email address" />  </div>  <button type="button" id="waitlist-button" class="btn">Join Waitlist</button></form>
     </header>
 
     <hr class="divider" />
@@ -88,5 +88,27 @@
     if (document.readyState === 'loading'){document.addEventListener('DOMContentLoaded', bind);} else {bind();}
   })();
   </script>
+
+  <!-- Waitlist animated form -->
+  <script>
+  (function(){
+    function initWaitlist(){
+      var form = document.getElementById('waitlist-form');
+      if (!form) return;
+      var btn = document.getElementById('waitlist-button');
+      var field = form.querySelector('.field-wrapper');
+      if (!btn || !field) return;
+      btn.addEventListener('click', function(){
+        if (!form.classList.contains('expanded')){
+          form.classList.add('expanded');
+          btn.textContent = 'Submit';
+          btn.type = 'submit';
+        }
+      });
+    }
+    if (document.readyState === 'loading'){document.addEventListener('DOMContentLoaded', initWaitlist);} else {initWaitlist();}
+  })();
+  </script>
+
 </body>
 </html>
