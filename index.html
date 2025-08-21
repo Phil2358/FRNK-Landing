@@ -2,72 +2,93 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>FRNK – One hub. Uniform profiles.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FRNK — One hub. Uniform profiles.</title>
+  <meta name="description" content="Connect accounts, edit once, sync everywhere — with AI keeping everything consistent."/>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <main class="wrap">
-    <section class="card" aria-labelledby="brand">
-      <h1 class="logo" id="brand" aria-label="FRNK">
-        <span>F</span><span>R</span><span>N</span><span>K</span>
-      </h1>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo-box" aria-hidden="true"></div>
+        <span class="brand-name">FRNK</span>
+      </div>
+      <h1>One hub. Uniform profiles.</h1>
       <p class="domain">thefrnk.com</p>
 
-      <p class="tagline">One hub.<br/>Uniform profiles.</p>
+      <!-- Waitlist -->
+      <div class="card waitlist">
+        <form action="https://formspree.io/f/mwpqjbzv" method="POST" class="waitlist-form" aria-label="Join waitlist form">
+          <input type="email" name="email" placeholder="Enter your email to join the waitlist" required aria-label="Email address"/>
+          <button type="submit">Join Waitlist</button>
+        </form>
+        <p class="small subtle">No spam. Early access invites only.</p>
+      </div>
+    </header>
 
-      <!-- Waitlist trigger -->
-      <button id="waitlist-btn"
-              class="btn"
-              aria-controls="waitlist-form"
-              aria-expanded="false">
-        Join Waitlist
-      </button>
+    <!-- How it Works -->
+    <section class="how-it-works" aria-labelledby="howitworks-heading">
+      <h2 id="howitworks-heading">How it Works</h2>
+      <p class="section-blurb">Connect accounts, edit once, sync everywhere — with AI keeping everything consistent.</p>
 
-      <!-- Waitlist form -->
-      <form id="waitlist-form"
-            class="visually-hidden"
-            action="https://formspree.io/f/mwpqjbzv"
-            method="POST"
-            aria-live="polite">
-        <div class="form-row">
-          <label for="email" class="visually-hidden-label">Email address</label>
-          <input id="email" type="email" name="email" placeholder="Enter your email" autocomplete="email" required aria-describedby="privacy-note" />
-          <button type="submit" class="btn btn-inline">Notify Me</button>
+      <div class="cards">
+        <!-- Card 1 -->
+        <div class="card">
+          <h3>Connect Your Profiles</h3>
+          <p>Link your social and professional accounts to FRNK in seconds.</p>
+          <div id="extra1" class="extra hidden" aria-live="polite">
+            <p>
+              FRNK uses secure API connections (OAuth) to connect to your platforms — like LinkedIn, Instagram, Twitter/X, TikTok, and more. Once connected, FRNK pulls in your existing bios, headlines, profile pictures, banners, and links. All your profiles appear side-by-side in your dashboard, ready to edit and sync from one place.
+            </p>
+          </div>
+          <button class="toggle" aria-expanded="false" aria-controls="extra1">Tell me more</button>
         </div>
-        <p id="privacy-note" class="privacy" role="note">We’ll only email when we launch. No spam.</p>
-        <div id="form-status" class="sr-status" role="status" aria-live="polite"></div>
-      </form>
 
-      <hr class="divider" />
+        <!-- Card 2 -->
+        <div class="card">
+          <h3>Edit Once, Update Everywhere</h3>
+          <p>Make changes once in FRNK, and sync them across all platforms.</p>
+          <div id="extra2" class="extra hidden" aria-live="polite">
+            <p>
+              Instead of logging into each platform separately, FRNK lets you edit your details — name, bio, job title, profile picture, and links — in a single editor. FRNK adapts the content to match each platform’s style (LinkedIn = professional, Instagram = casual, Twitter = short and sharp). With one click, you can publish everywhere at once or select which platforms to update.
+            </p>
+          </div>
+          <button class="toggle" aria-expanded="false" aria-controls="extra2">Tell me more</button>
+        </div>
 
-      <!-- HOW IT WORKS (always expanded on all devices) -->
-      <div id="how" class="how-inline" aria-label="How it Works">
-        <h2 class="how-title">How it Works</h2>
-        <div class="steps">
-          <article class="step">
-            <h3>1 · Connect</h3>
-            <p>Link your profiles — LinkedIn, Instagram, X, and more.</p>
-          </article>
-          <article class="step">
-            <h3>2 · Sync</h3>
-            <p>Update once; FRNK assists and mirrors your identity everywhere.</p>
-          </article>
-          <article class="step">
-            <h3>3 · Stay Polished</h3>
-            <p>Keep bios, photos, and links aligned across platforms — automatically.</p>
-          </article>
+        <!-- Card 3 -->
+        <div class="card">
+          <h3>AI-Assisted Consistency</h3>
+          <p>Stay polished with FRNK’s smart AI assistance.</p>
+          <div id="extra3" class="extra hidden" aria-live="polite">
+            <p>
+              FRNK’s AI doesn’t just copy-paste — it helps you look your best. It checks for inconsistencies (like one profile saying Berlin while another says Corfu), adapts tone for each platform, and even resizes profile images to the right dimensions. You’ll also get gentle reminders when your branding is outdated, so your digital presence always stays fresh and consistent.
+            </p>
+          </div>
+          <button class="toggle" aria-expanded="false" aria-controls="extra3">Tell me more</button>
         </div>
       </div>
-
-      <p class="handle">@frnk.global</p>
     </section>
-  </main>
 
-  <footer class="footer">
-    <p>© 2025 FRNK. All rights reserved.</p>
-  </footer>
+    <footer>
+      <p>© <span id="year">2025</span> FRNK. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <script>
+    // Mobile toggle logic with ARIA updates
+    document.querySelectorAll(".card").forEach(card => {
+      const btn = card.querySelector("button.toggle");
+      const extra = card.querySelector(".extra");
+      if (!btn || !extra) return;
+      btn.addEventListener("click", () => {
+        const isHidden = extra.classList.contains("hidden");
+        extra.classList.toggle("hidden");
+        btn.setAttribute("aria-expanded", isHidden ? "true" : "false");
+        btn.textContent = isHidden ? "Show less" : "Tell me more";
+      });
+    });
+  </script>
 </body>
 </html>
