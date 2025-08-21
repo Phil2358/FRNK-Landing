@@ -2,72 +2,108 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>FRNK – One hub. Uniform profiles.</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <script src="script.js" defer></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FRNK — One hub. Uniform profiles.</title>
+  <meta name="description" content="Connect accounts, edit once, sync everywhere — with AI keeping everything consistent."/>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <main class="wrap">
-    <section class="card" aria-labelledby="brand">
-      <h1 class="logo" id="brand" aria-label="FRNK">
-        <span>F</span><span>R</span><span>N</span><span>K</span>
-      </h1>
+    <!-- Hero matches prior layout: large logo text, domain, tagline, CTA -->
+    <section class="hero" aria-labelledby="site-title">
+      <h1 id="site-title" class="logo">FRNK</h1>
       <p class="domain">thefrnk.com</p>
-
-      <p class="tagline">One hub.<br/>Uniform profiles.</p>
-
-      <!-- Waitlist trigger -->
-      <button id="waitlist-btn"
-              class="btn"
-              aria-controls="waitlist-form"
-              aria-expanded="false">
-        Join Waitlist
-      </button>
-
-      <!-- Waitlist form -->
-      <form id="waitlist-form"
-            class="visually-hidden"
-            action="https://formspree.io/f/mwpqjbzv"
-            method="POST"
-            aria-live="polite">
-        <div class="form-row">
-          <label for="email" class="visually-hidden-label">Email address</label>
-          <input id="email" type="email" name="email" placeholder="Enter your email" autocomplete="email" required aria-describedby="privacy-note" />
-          <button type="submit" class="btn btn-inline">Notify Me</button>
-        </div>
-        <p id="privacy-note" class="privacy" role="note">We’ll only email when we launch. No spam.</p>
-        <div id="form-status" class="sr-status" role="status" aria-live="polite"></div>
+      <h2 class="tagline">
+        One hub.<br/>
+        Uniform profiles.
+      </h2>
+      <form action="https://formspree.io/f/mwpqjbzv" method="POST" class="cta" aria-label="Join waitlist form">
+        <input type="email" name="email" required placeholder="Enter your email" aria-label="Email address" />
+        <button type="submit" class="btn">Join Waitlist</button>
       </form>
-
-      <hr class="divider" />
-
-      <!-- HOW IT WORKS (always expanded on all devices) -->
-      <div id="how" class="how-inline" aria-label="How it Works">
-        <h2 class="how-title">How it Works</h2>
-        <div class="steps">
-          <article class="step">
-            <h3>1 · Connect</h3>
-            <p>Link your profiles — LinkedIn, Instagram, X, and more.</p>
-          </article>
-          <article class="step">
-            <h3>2 · Sync</h3>
-            <p>Update once; FRNK assists and mirrors your identity everywhere.</p>
-          </article>
-          <article class="step">
-            <h3>3 · Stay Polished</h3>
-            <p>Keep bios, photos, and links aligned across platforms — automatically.</p>
-          </article>
-        </div>
-      </div>
-
-      <p class="handle">@frnk.global</p>
     </section>
+
+    <hr class="divider" aria-hidden="true"/>
+
+    <!-- How it Works -->
+    <section class="hiw" aria-labelledby="hiw-heading">
+      <h3 id="hiw-heading">How it Works</h3>
+
+      <div class="cards">
+        <!-- Card 1 -->
+        <article class="card hiw-card">
+          <h4>1 · Connect</h4>
+          <p class="card-blurb">Link your profiles — LinkedIn, Instagram, X, and more.</p>
+
+          <!-- Hidden details; expands on all devices -->
+          <div id="hiw-extra-1" class="hiw-extra is-hidden" aria-live="polite">
+            <p>
+              FRNK connects via secure OAuth to platforms like LinkedIn, Instagram, X/Twitter, and TikTok.
+              It imports your bios, headlines, profile photos, banners, and links so you can view everything side‑by‑side.
+            </p>
+          </div>
+
+          <button class="hiw-toggle" aria-expanded="false" aria-controls="hiw-extra-1">
+            Tell me more
+          </button>
+        </article>
+
+        <!-- Card 2 -->
+        <article class="card hiw-card">
+          <h4>2 · Sync</h4>
+          <p class="card-blurb">Update once; FRNK assists and mirrors your identity everywhere.</p>
+
+          <div id="hiw-extra-2" class="hiw-extra is-hidden" aria-live="polite">
+            <p>
+              Edit your name, role, bios, links, and profile images in one place. FRNK adapts tone per platform
+              (LinkedIn = professional, Instagram = casual, X = concise) and publishes everywhere at once or selectively.
+            </p>
+          </div>
+
+          <button class="hiw-toggle" aria-expanded="false" aria-controls="hiw-extra-2">
+            Tell me more
+          </button>
+        </article>
+
+        <!-- Card 3 -->
+        <article class="card hiw-card">
+          <h4>3 · Stay Polished</h4>
+          <p class="card-blurb">Keep bios, photos, and links aligned across platforms — automatically.</p>
+
+          <div id="hiw-extra-3" class="hiw-extra is-hidden" aria-live="polite">
+            <p>
+              FRNK flags inconsistencies (titles, locations), suggests tone‑appropriate rewrites,
+              resizes images to the right dimensions, and nudges you when details get stale.
+            </p>
+          </div>
+
+          <button class="hiw-toggle" aria-expanded="false" aria-controls="hiw-extra-3">
+            Tell me more
+          </button>
+        </article>
+      </div>
+    </section>
+
+    <footer class="site-foot">
+      <p>© <span id="year">2025</span> FRNK. All rights reserved.</p>
+      <p class="handle">@frnk.global</p>
+    </footer>
   </main>
 
-  <footer class="footer">
-    <p>© 2025 FRNK. All rights reserved.</p>
-  </footer>
+  <script>
+    // Accordion toggle on ALL devices with ARIA updates
+    document.querySelectorAll('.hiw-card').forEach(function(card) {
+      var btn = card.querySelector('.hiw-toggle');
+      var extra = card.querySelector('.hiw-extra');
+      if (!btn || !extra) return;
+
+      btn.addEventListener('click', function() {
+        var isHidden = extra.classList.contains('is-hidden');
+        extra.classList.toggle('is-hidden');
+        btn.setAttribute('aria-expanded', isHidden ? 'true' : 'false');
+        btn.textContent = isHidden ? 'Show less' : 'Tell me more';
+      });
+    });
+  </script>
 </body>
 </html>

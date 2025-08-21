@@ -1,17 +1,15 @@
-# FRNK Landing (Static Package)
+# FRNK Landing — Accordion on All Devices
 
-This is a minimal static package for the FRNK landing page with an accessible **How it Works** accordion that collapses on mobile and is always expanded on tablet/desktop.
+This package keeps the original hero/logo layout and only adds **Tell me more** buttons to each **How it Works** card. Clicking the button expands an inline description **on all devices** (no desktop auto-open).
 
 ## Files
-- `index.html` — main page (includes accessible ARIA attributes and Formspree waitlist form).
-- `styles.css` — monochrome theme (text `#222`, background `#fff`, card `#f2f0ec`).
-- `README.md` — this file.
+- `index.html` — HTML with three cards, each containing:
+  - a `button.hiw-toggle` with `aria-expanded` and `aria-controls`
+  - a hidden `div.hiw-extra.is-hidden` with `aria-live="polite"`
+- `styles.css` — Minimal styles that match your screenshot’s layout (warm background, light cards).
+- `README.md` — Notes and instructions.
 
-## Behavior
-- On **mobile**: each How it Works card shows a short blurb and a **Tell me more** button that expands inline. Button toggles to **Show less** when open. Expanded content containers use `aria-live="polite"`, and the button updates `aria-expanded` appropriately.
-- On **tablet/desktop (≥768px)**: the detailed content is **always visible** and the toggle buttons are hidden.
-
-## Deploy
-Replace your repo's existing `index.html` and `styles.css` with these, commit, and push. If you're on Vercel, it should auto-redeploy.
+## Use
+Replace your repo’s existing files or copy the snippets into your current layout. Commit & push; Vercel should redeploy.
 
 © 2025 FRNK
