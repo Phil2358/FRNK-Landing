@@ -159,3 +159,13 @@ body {
 .hiw-toggle{background:none;border:none;padding:0;margin-top:8px;font:inherit;color:var(--text,#222);text-decoration:underline;cursor:pointer}
 .hiw-extra{overflow:hidden;transition:max-height .38s ease, opacity .28s ease, transform .28s ease;opacity:1;transform:translateY(0);margin-top:8px;background:#fff;border:1px solid var(--edge,rgba(0,0,0,.08));border-radius:10px;padding:12px}
 .hiw-extra.is-collapsed{max-height:0;opacity:0;transform:translateY(-4px);padding-top:0;padding-bottom:0;border-width:0;margin-top:0}
+
+/* Who's it for */
+.who { margin-top: 28px; text-align: center; }
+.who-title { font-size: clamp(20px, 3.5vw, 28px); margin: 0 0 6px; font-weight: 800; }
+.who-blurb { opacity: .75; margin: 0 0 16px; }
+.who-grid { display: grid; grid-template-columns: 1fr; gap: 12px; margin: 0 auto; max-width: 900px; }
+@media (min-width: 820px) { .who-grid { grid-template-columns: repeat(4, 1fr); } }
+.who-card { background: var(--card, #f2f0ec); border: 1px solid var(--edge, rgba(0,0,0,.08)); border-radius: 12px; text-align: left; padding: 14px; box-shadow: 0 1px 4px rgba(0,0,0,.05); }
+.who-card h3 { margin: 0 0 6px; font-size: 16px; }
+.who-card p { margin: 0; font-size: 14px; line-height: 1.45; }
