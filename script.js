@@ -19,20 +19,3 @@ window.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
-
-
-// How it Works: accordion toggle on all devices
-(function(){
-  var cards = document.querySelectorAll('.step');
-  cards.forEach(function(card){
-    var btn = card.querySelector('.hiw-toggle');
-    var extra = card.querySelector('.hiw-extra');
-    if (!btn || !extra) return;
-    btn.addEventListener('click', function(){
-      var collapsed = extra.classList.contains('is-collapsed');
-      extra.classList.toggle('is-collapsed');
-      btn.setAttribute('aria-expanded', collapsed ? 'true' : 'false');
-      btn.textContent = collapsed ? 'Show less' : 'Tell me more';
-    });
-  });
-})();
