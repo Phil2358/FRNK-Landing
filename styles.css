@@ -156,7 +156,7 @@ body {
 @keyframes fadeUp { from { opacity: 0; transform: translateY(18px);} to { opacity: 1; transform: translateY(0);} }
 
 
-/* === FRNK visual refinement v1 === */
+/* FRNK polish v1 */
 :root{
   --ink:#222;
   --paper:#f7f5f1;
@@ -166,54 +166,27 @@ body {
   --radius:12px;
 }
 
-/* Base */
-body{font:16px/1.55 Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif;color:var(--ink);background:var(--paper);}
+body{color:var(--ink);background:var(--paper);}
 
-/* Hero */
-.logo{font-weight:800;letter-spacing:.02em;}
-.domain{opacity:.6;font-weight:700;margin:.25rem 0 .5rem;}
-.tagline{font-weight:800; margin:.25rem 0 1rem; font-size:clamp(28px,4.2vw,40px);}
-
-/* Section titles */
 .how-title,.who-title{font-weight:800;font-size:clamp(22px,3.2vw,28px);margin:10px 0 18px;text-align:center;}
-.divider{border:0;border-top:1px solid var(--edge);margin:20px 0 26px;}
-
-/* Cards unified */
-.card,.who-card{
-  background:var(--card);
-  border:1px solid var(--edge);
-  border-radius:var(--radius);
-  box-shadow:var(--shadow);
-  padding:16px;
-}
+.step{background:var(--card);border:1px solid var(--edge);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;}
 .step h3,.who-card h3{font-size:clamp(16px,2.6vw,18px);margin:0 0 6px;font-weight:800;}
 .step p,.who-card p{margin:0 0 6px;}
-
-/* Grids */
 .steps{display:grid;gap:16px;}
 @media (min-width:820px){ .steps{grid-template-columns:repeat(3,1fr);} }
 .who-grid{display:grid;gap:12px;max-width:900px;margin:0 auto;}
 @media (min-width:820px){ .who-grid{grid-template-columns:repeat(4,1fr);} }
+.who-card{background:var(--card);border:1px solid var(--edge);border-radius:var(--radius);box-shadow:var(--shadow);padding:16px;}
 
-/* Tell me more link-button */
-.hiw-toggle{
-  background:none;border:none;padding:0;margin-top:8px;font:inherit;color:var(--ink);
-  text-decoration:underline;text-underline-offset:3px;cursor:pointer;
-}
+.hiw-toggle{background:none;border:none;padding:0;margin-top:8px;font:inherit;color:var(--ink);
+  text-decoration:underline;text-underline-offset:3px;cursor:pointer;}
 .hiw-toggle:hover{opacity:.85;}
 .hiw-toggle:focus-visible{outline:2px solid #000;outline-offset:2px;border-radius:6px;}
 
-/* Accordion motion + reduced motion */
 .hiw-extra{overflow:hidden;transition:max-height .35s ease,opacity .25s ease,transform .25s ease;
   max-height:640px;opacity:1;transform:translateY(0);margin-top:8px;background:#fff;border:1px solid var(--edge);
-  border-radius:10px;padding:12px;
-}
+  border-radius:10px;padding:12px;}
 .hiw-extra.is-collapsed{max-height:0;opacity:0;transform:translateY(-4px);padding-top:0;padding-bottom:0;border-width:0;margin-top:0;}
-@media (prefers-reduced-motion:reduce){
-  .hiw-extra{transition:none;}
-}
+@media (prefers-reduced-motion:reduce){ .hiw-extra{transition:none;} }
 
-/* CTA focus clarity */
 .btn:focus-visible{outline:2px solid #000;outline-offset:2px;border-radius:10px;}
-/* === end FRNK refinement v1 === */
-
