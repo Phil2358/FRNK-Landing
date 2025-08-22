@@ -36,6 +36,7 @@
     fieldset legend { font-weight: 600; margin-bottom: 8px; }
     .radios { display: flex; flex-wrap: wrap; gap: 14px; }
 
+    /* Subtle appearance for labels that were previously visually-hidden */
     label { font-weight: 600; display: block; margin-bottom: 6px; }
   </style>
 </head>
@@ -46,7 +47,7 @@
       <p class="domain">thefrnk.com</p>
       <p class="tagline">One hub.<br/>Uniform profiles.</p>
 
-      <!-- WAITLIST FORM -->
+      <!-- WAITLIST FORM (Formspree submit + Google Sheets fan-out) -->
       <form id="waitlist-form" action="https://formspree.io/f/mwpqjbzv" method="POST" class="cta" aria-label="Join waitlist form">
         <!-- Email (always visible) -->
         <div class="field-wrapper">
@@ -97,8 +98,10 @@
         <input type="hidden" name="utm_medium" id="utm_medium">
         <input type="hidden" name="utm_campaign" id="utm_campaign">
 
-        <!-- Single button -->
-        <button id="waitlist-button" class="btn" type="button">Join Waitlist</button>
+        <!-- Hidden Google Sheets webhook URL (used by fan-out script) -->
+        <input type="hidden" id="gs_webhook" value="https://script.google.com/macros/s/AKfycbwDvyBeO1SpSUO0_9gxaAZN9K_67mtfOXq__HkVosypqDYXAXPaN5aox-BHVfyeTpfZ4A/exec" />
+
+        <button type="button" id="waitlist-button" class="btn">Join Waitlist</button>
       </form>
     </header>
 
@@ -204,7 +207,7 @@
   })();
   </script>
 
-  <!-- UTM capture + Sheets fan-out -->
+  <!-- UTM capture -->
   <script>
     (function(){
       var params = new URLSearchParams(location.search);
@@ -215,7 +218,7 @@
     })();
   </script>
 
-  <!-- Fan-out to Google Sheets -->
+  <!-- Fan-out to Google Sheets (no Formspree webhooks needed) -->
   <script>
     (function(){
       var form = document.getElementById('waitlist-form');
@@ -224,16 +227,24 @@
         try {
           var webhook = document.getElementById('gs_webhook');
           var url = webhook && webhook.value && webhook.value !== 'YOUR_GOOGLE_APPS_SCRIPT_URL' ? webhook.value : '';
-          if (!url) return;
+          if (!url) return; // nothing to do
+
+          // Build x-www-form-urlencoded payload from current form fields
           var fd = new FormData(form);
           var params = new URLSearchParams();
-          fd.forEach(function(value, key){ if (key !== '_gotcha') params.append(key, value); });
+          fd.forEach(function(value, key){
+            if (key === '_gotcha') return; // skip honeypot
+            params.append(key, value);
+          });
+
           if (navigator.sendBeacon) {
+            // Use Beacon to avoid blocking navigation
             navigator.sendBeacon(url, params);
           } else {
+            // Fallback: fire-and-forget fetch with no-cors
             fetch(url, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: params });
           }
-        } catch(e){}
+        } catch(e) { /* swallow errors to not affect main submit */ }
       });
     })();
   </script>
