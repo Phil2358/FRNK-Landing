@@ -99,6 +99,10 @@
         <input type="hidden" name="utm_campaign" id="utm_campaign">
 
         <button type="button" id="waitlist-button" class="btn">Join Waitlist</button>
+        <!-- Hidden Google Sheets webhook URL (optional). Replace value with your Apps Script Web App URL -->
+        <input type="hidden" id="gs_webhook" value="YOUR_GOOGLE_APPS_SCRIPT_URL" />
+
+        <button type="button" id="waitlist-button" class="btn">Join Waitlist</button>
       </form>
     </header>
 
@@ -204,13 +208,44 @@
   })();
   </script>
 
-  <!-- UTM capture -->
+  <!-- UTM capture + Sheets fan-out -->
   <script>
     (function(){
       var params = new URLSearchParams(location.search);
       ['utm_source','utm_medium','utm_campaign'].forEach(function(k){
         var el = document.getElementById(k);
         if (el && params.get(k)) el.value = params.get(k);
+      });
+    })();
+  </script>
+
+  <!-- Fan-out to Google Sheets (no Formspree webhooks needed) -->
+  <script>
+    (function(){
+      var form = document.getElementById('waitlist-form');
+      if (!form) return;
+      form.addEventListener('submit', function(){
+        try {
+          var webhook = document.getElementById('gs_webhook');
+          var url = webhook && webhook.value && webhook.value !== 'YOUR_GOOGLE_APPS_SCRIPT_URL' ? webhook.value : '';
+          if (!url) return; // nothing to do
+
+          // Build x-www-form-urlencoded payload from current form fields
+          var fd = new FormData(form);
+          var params = new URLSearchParams();
+          fd.forEach(function(value, key){
+            if (key === '_gotcha') return; // skip honeypot
+            params.append(key, value);
+          });
+
+          if (navigator.sendBeacon) {
+            // Use Beacon to avoid blocking navigation
+            navigator.sendBeacon(url, params);
+          } else {
+            // Fallback: fire-and-forget fetch with no-cors
+            fetch(url, { method:'POST', mode:'no-cors', headers:{'Content-Type':'application/x-www-form-urlencoded'}, body: params });
+          }
+        } catch(e) { /* swallow errors to not affect main submit */ }
       });
     })();
   </script>
