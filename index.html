@@ -5,23 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>FRNK – One hub. Uniform profiles.</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css?v=fontmatch1" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=fontmatch1" />
 
-<style>
-.site-foot a,
-.site-foot a:visited,
-.site-foot a:hover,
-.site-foot a:active {
-  color: #444 !important;
-  text-decoration: none;
-}
-.site-foot a:hover {
-  text-decoration: underline;
-}
-</style>
-
+  <style>
+    .site-foot a,
+    .site-foot a:visited,
+    .site-foot a:hover,
+    .site-foot a:active {
+      color: #444 !important;
+      text-decoration: none;
+    }
+    .site-foot a:hover {
+      text-decoration: underline;
+    }
+  </style>
 </head>
 <body>
   <div class="page-card">
@@ -29,7 +28,55 @@
       <h1 class="logo" aria-label="FRNK"><span>F</span><span>R</span><span>N</span><span>K</span></h1>
       <p class="domain">thefrnk.com</p>
       <p class="tagline">One hub.<br/>Uniform profiles.</p>
-      <form id="waitlist-form" action="https://formspree.io/f/mwpqjbzv" method="POST" class="cta" aria-label="Join waitlist form">  <div class="field-wrapper">    <input type="email" name="email" required placeholder="Enter your email" aria-label="Email address" />  </div>  <button type="button" id="waitlist-button" class="btn">Join Waitlist</button></form>
+
+      <!-- WAITLIST FORM -->
+      <form id="waitlist-form" action="https://formspree.io/f/mwpqjbzv" method="POST" class="cta" aria-label="Join waitlist form">
+        <!-- Email -->
+        <div class="field-wrapper">
+          <input type="email" name="email" required placeholder="Enter your email" aria-label="Email address" />
+        </div>
+
+        <!-- Q1: primary platform -->
+        <div class="field-wrapper">
+          <label for="platform_preferred" class="visually-hidden">Which platform do you use most for your brand?</label>
+          <select id="platform_preferred" name="platform_preferred" required aria-label="Which platform do you use most for your brand?">
+            <option value="" disabled selected>Select your primary platform</option>
+            <option>LinkedIn</option>
+            <option>Instagram</option>
+            <option>Facebook</option>
+            <option>X / Twitter</option>
+            <option>TikTok</option>
+            <option>Other</option>
+          </select>
+        </div>
+
+        <!-- Q2: willingness to pay -->
+        <div class="field-wrapper">
+          <fieldset aria-label="Would you pay for automated profile sync?">
+            <legend>Would you pay for automated profile sync?</legend>
+            <label><input type="radio" name="pay_for_auto_sync" value="Yes" required /> Yes</label>
+            <label><input type="radio" name="pay_for_auto_sync" value="Maybe" /> Maybe</label>
+            <label><input type="radio" name="pay_for_auto_sync" value="No" /> No</label>
+          </fieldset>
+        </div>
+
+        <!-- Optional: notes -->
+        <div class="field-wrapper">
+          <label for="notes" class="visually-hidden">Anything else we should know?</label>
+          <textarea id="notes" name="notes" rows="3" placeholder="Anything else we should know?"></textarea>
+        </div>
+
+        <!-- Spam trap & redirect -->
+        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
+        <input type="hidden" name="_redirect" value="/thanks.html" />
+
+        <!-- Hidden UTM capture -->
+        <input type="hidden" name="utm_source" id="utm_source">
+        <input type="hidden" name="utm_medium" id="utm_medium">
+        <input type="hidden" name="utm_campaign" id="utm_campaign">
+
+        <button type="button" id="waitlist-button" class="btn">Join Waitlist</button>
+      </form>
     </header>
 
     <hr class="divider" />
@@ -77,7 +124,7 @@
       </div>
     </section>
 
-        <footer class="site-foot">
+    <footer class="site-foot">
       <p>© <span id="year">2025</span> FRNK. All rights reserved.</p>
       <p class="handle">@frnk.global</p>
       <p class="foot-links"><a href="/privacy.html" style="color:#444;">Privacy Policy</a> · <a href="/terms.html">Terms & Conditions</a></p>
@@ -125,12 +172,10 @@
   })();
   </script>
 
-
   <!-- Logo animation trigger -->
   <script>
   (function(){
     function run(){
-      // Wait one frame to ensure layout is ready
       requestAnimationFrame(function(){ document.body.classList.add('logo-animate'); });
     }
     if (document.fonts && document.fonts.ready) {
@@ -141,5 +186,35 @@
   })();
   </script>
 
+  <!-- UTM capture -->
+  <script>
+    (function(){
+      var params = new URLSearchParams(location.search);
+      ['utm_source','utm_medium','utm_campaign'].forEach(function(k){
+        var el = document.getElementById(k);
+        if (el && params.get(k)) el.value = params.get(k);
+      });
+    })();
+  </script>
+</body>
+</html>
+
+<!-- Thanks Page -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thank You – FRNK</title>
+  <link rel="stylesheet" href="styles.css?v=fontmatch1" />
+</head>
+<body>
+  <div class="page-card" style="text-align:center; padding:80px 20px;">
+    <h1 class="logo" aria-label="FRNK"><span>F</span><span>R</span><span>N</span><span>K</span></h1>
+    <p class="domain">thefrnk.com</p>
+    <h2 style="margin-top:24px; font-size:28px;">Thank you for joining the waitlist!</h2>
+    <p style="margin-top:12px; font-size:18px; max-width:460px; margin-left:auto; margin-right:auto;">We’ll keep you posted as soon as FRNK is ready. Stay tuned!</p>
+    <p style="margin-top:36px;"><a href="/" class="btn">← Back to Home</a></p>
+  </div>
 </body>
 </html>
