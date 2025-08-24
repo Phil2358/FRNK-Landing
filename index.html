@@ -1,15 +1,15 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>FRNK – One platform. Uniform profiles.</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css?v=fontmatch1" />
-
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FRNK – One platform. Uniform profiles.</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css?v=fontmatch1" rel="stylesheet">
+<style>
     .site-foot a,
     .site-foot a:visited,
     .site-foot a:hover,
@@ -39,125 +39,103 @@
     /* Subtle appearance for labels that were previously visually-hidden */
     label { font-weight: 600; display: block; margin-bottom: 6px; }
   </style>
-</head>
+</link></head>
 <body>
-  <div class="page-card">
-    <header class="hero">
-      <h1 class="logo" aria-label="FRNK"><span>F</span><span>R</span><span>N</span><span>K</span></h1>
-      <p class="domain">thefrnk.com</p>
-      <p class="tagline">One platform.<br/>Uniform profiles.</p>
+<div class="page-card">
+<header class="hero">
+<h1 aria-label="FRNK" class="logo"><span>F</span><span>R</span><span>N</span><span>K</span></h1>
+<p class="domain">thefrnk.com</p>
+<p class="tagline">One platform.<br/>Uniform profiles.</p>
+<!-- WAITLIST FORM (Formspree submit + Google Sheets fan-out) -->
+<form action="https://formspree.io/f/mwpqjbzv" aria-label="Join waitlist form" class="cta" id="waitlist-form" method="POST">
+<!-- Email (always visible) -->
+<div class="field-wrapper">
+<label for="email">Email</label>
+<input aria-label="Email address" id="email" name="email" placeholder="you@brand.com" required="" type="email"/>
+</div>
+<!-- Grouped questions (smooth reveal) -->
+<div class="two-col extra" style="--i:1">
+<!-- Q1: primary platform -->
+<div class="field-wrapper">
+<label for="platform_preferred">Which platform do you use most for your brand?</label>
+<select id="platform_preferred" name="platform_preferred" required="">
+<option disabled="" selected="" value="">Select your primary platform</option>
+<option>LinkedIn</option>
+<option>Instagram</option>
+<option>Facebook</option>
+<option>X / Twitter</option>
+<option>TikTok</option>
+<option>Other</option>
+</select>
+</div>
+<!-- Q2: willingness to pay -->
+<div class="field-wrapper">
 
-      <!-- WAITLIST FORM (Formspree submit + Google Sheets fan-out) -->
-      <form id="waitlist-form" action="https://formspree.io/f/mwpqjbzv" method="POST" class="cta" aria-label="Join waitlist form">
-        <!-- Email (always visible) -->
-        <div class="field-wrapper">
-          <label for="email">Email</label>
-          <input id="email" type="email" name="email" required placeholder="you@brand.com" aria-label="Email address" />
-        </div>
-
-        <!-- Grouped questions (smooth reveal) -->
-        <div class="two-col extra" style="--i:1">
-          <!-- Q1: primary platform -->
-          <div class="field-wrapper">
-            <label for="platform_preferred">Which platform do you use most for your brand?</label>
-            <select id="platform_preferred" name="platform_preferred" required>
-              <option value="" disabled selected>Select your primary platform</option>
-              <option>LinkedIn</option>
-              <option>Instagram</option>
-              <option>Facebook</option>
-              <option>X / Twitter</option>
-              <option>TikTok</option>
-              <option>Other</option>
-            </select>
-          </div>
-
-          <!-- Q2: willingness to pay -->
-          <div class="field-wrapper">
-            <fieldset aria-label="Would you pay for automated profile sync?">
-              <legend>Would you pay for automated profile sync?</legend>
-              <div class="radios">
-                <label><input type="radio" name="pay_for_auto_sync" value="Yes" required /> Yes</label>
-                <label><input type="radio" name="pay_for_auto_sync" value="Maybe" /> Maybe</label>
-                <label><input type="radio" name="pay_for_auto_sync" value="No" /> No</label>
-              </div>
-            </fieldset>
-          </div>
-        </div>
-
-        <!-- Optional: notes (full width) -->
-        <div class="field-wrapper extra" style="--i:2">
-          <label for="notes">Anything else we should know?</label>
-          <textarea id="notes" name="notes" rows="3" placeholder="Your biggest headache with profiles…"></textarea>
-        </div>
-
-        <!-- Spam trap -->
-        <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-
-        <!-- Hidden UTM capture -->
-        <input type="hidden" name="utm_source" id="utm_source">
-        <input type="hidden" name="utm_medium" id="utm_medium">
-        <input type="hidden" name="utm_campaign" id="utm_campaign">
-
-        <!-- Hidden Google Sheets webhook URL (used by fan-out script) -->
-        <input type="hidden" id="gs_webhook" value="https://script.google.com/macros/s/AKfycbwDvyBeO1SpSUO0_9gxaAZN9K_67mtfOXq__HkVosypqDYXAXPaN5aox-BHVfyeTpfZ4A/exec" />
-
-        <button type="button" id="waitlist-button" class="btn">Join Waitlist</button>
-      </form>
-    </header>
-
-    <hr class="divider" />
-
-    <section id="how" aria-label="How it Works">
-      <h2 class="how-title">How it Works</h2>
-      <div class="steps">
-        <article class="step card">
-          <h3>1 · Connect</h3>
-          <p>Link your profiles — LinkedIn, Instagram, X, and more.</p>
-          <div id="hiw-extra-1" class="hiw-extra is-collapsed" aria-live="polite">
-            <p>FRNK uses secure API connections (OAuth) to connect to your platforms — like LinkedIn, Instagram, Twitter/X, TikTok, and more. Once connected, FRNK pulls in your existing bios, headlines, profile pictures, banners, and links. All your profiles appear side-by-side in your dashboard, ready to edit and sync from one place.</p>
-          </div>
-          <button class="hiw-toggle" aria-expanded="false" aria-controls="hiw-extra-1">Tell me more</button>
-        </article>
-
-        <article class="step card">
-          <h3>2 · Sync</h3>
-          <p>Update once; FRNK assists and mirrors your identity everywhere.</p>
-          <div id="hiw-extra-2" class="hiw-extra is-collapsed" aria-live="polite">
-            <p>Instead of logging into each platform separately, FRNK lets you edit your details — name, bio, job title, profile picture, and links — in a single editor. FRNK adapts the content to match each platform’s style (LinkedIn = professional, Instagram = casual, Twitter = short and sharp). With one click, you can publish everywhere at once or select which platforms to update.</p>
-          </div>
-          <button class="hiw-toggle" aria-expanded="false" aria-controls="hiw-extra-2">Tell me more</button>
-        </article>
-
-        <article class="step card">
-          <h3>3 · Stay Polished</h3>
-          <p>Keep bios, photos, and links aligned across platforms — automatically.</p>
-          <div id="hiw-extra-3" class="hiw-extra is-collapsed" aria-live="polite">
-            <p>FRNK’s AI doesn’t just copy-paste — it helps you look your best. It checks for inconsistencies, adapts tone for each platform, and even resizes profile images to the right dimensions. You’ll also get gentle reminders when your branding is outdated, so your digital presence always stays fresh and consistent.</p>
-          </div>
-          <button class="hiw-toggle" aria-expanded="false" aria-controls="hiw-extra-3">Tell me more</button>
-        </article>
-      </div>
-    </section>
-
-    <section class="who" aria-labelledby="who-heading">
-      <h2 id="who-heading" class="who-title">Who’s FRNK for?</h2>
-      <p class="who-blurb">Anyone managing multiple profiles who wants them consistent.</p>
-      <div class="who-grid">
-        <article class="who-card"><h3>Social Media Managers</h3><p>Keep clients’ profiles aligned across platforms with one interface.</p></article>
-        <article class="who-card"><h3>Freelancers & Founders</h3><p>Update your role, bio, and links once—reflect it everywhere.</p></article>
-        <article class="who-card"><h3>Creators & Influencers</h3><p>Stay on-brand from Instagram to TikTok to X without manual edits.</p></article>
-        <article class="who-card"><h3>Personal Use</h3><p>Make your online identity uniform across the profiles you care about.</p></article>
-      </div>
-    </section>
-
-    <footer class="site-foot">
-      <p>© <span id="year">2025</span> FRNK. All rights reserved.</p>
-      <p class="handle">@frnk.global</p>
-      <p class="foot-links"><a href="/privacy.html" style="color:#444;">Privacy Policy</a> · <a href="/terms.html">Terms & Conditions</a></p>
-    </footer>
-  </div>
-
-  <script>
+</div>
+</div>
+<!-- Optional: notes (full width) -->
+<div class="field-wrapper extra" style="--i:2">
+<label for="notes">Name primary platform if you chose Other in the first question</label>
+<textarea id="notes" name="notes" placeholder="Your biggest headache with profiles…" rows="3"></textarea>
+</div>
+<!-- Spam trap -->
+<input autocomplete="off" name="_gotcha" style="display:none" tabindex="-1" type="text"/>
+<!-- Hidden UTM capture -->
+<input id="utm_source" name="utm_source" type="hidden"/>
+<input id="utm_medium" name="utm_medium" type="hidden"/>
+<input id="utm_campaign" name="utm_campaign" type="hidden"/>
+<!-- Hidden Google Sheets webhook URL (used by fan-out script) -->
+<input id="gs_webhook" type="hidden" value="https://script.google.com/macros/s/AKfycbwDvyBeO1SpSUO0_9gxaAZN9K_67mtfOXq__HkVosypqDYXAXPaN5aox-BHVfyeTpfZ4A/exec">
+<button class="btn" id="waitlist-button" type="button">Join Waitlist</button>
+</input></form>
+</header>
+<hr class="divider"/>
+<section aria-label="How it Works" id="how">
+<h2 class="how-title">How it Works</h2>
+<div class="steps">
+<article class="step card">
+<h3>1 · Connect</h3>
+<p>Link your profiles — LinkedIn, Instagram, X, and more.</p>
+<div aria-live="polite" class="hiw-extra is-collapsed" id="hiw-extra-1">
+<p>FRNK uses secure API connections (OAuth) to connect to your platforms — like LinkedIn, Instagram, Twitter/X, TikTok, and more. Once connected, FRNK pulls in your existing bios, headlines, profile pictures, banners, and links. All your profiles appear side-by-side in your dashboard, ready to edit and sync from one place.</p>
+</div>
+<button aria-controls="hiw-extra-1" aria-expanded="false" class="hiw-toggle">Tell me more</button>
+</article>
+<article class="step card">
+<h3>2 · Sync</h3>
+<p>Update once; FRNK assists and mirrors your identity everywhere.</p>
+<div aria-live="polite" class="hiw-extra is-collapsed" id="hiw-extra-2">
+<p>Instead of logging into each platform separately, FRNK lets you edit your details — name, bio, job title, profile picture, and links — in a single editor. FRNK adapts the content to match each platform’s style (LinkedIn = professional, Instagram = casual, Twitter = short and sharp). With one click, you can publish everywhere at once or select which platforms to update.</p>
+</div>
+<button aria-controls="hiw-extra-2" aria-expanded="false" class="hiw-toggle">Tell me more</button>
+</article>
+<article class="step card">
+<h3>3 · Stay Polished</h3>
+<p>Keep bios, photos, and links aligned across platforms — automatically.</p>
+<div aria-live="polite" class="hiw-extra is-collapsed" id="hiw-extra-3">
+<p>FRNK’s AI doesn’t just copy-paste — it helps you look your best. It checks for inconsistencies, adapts tone for each platform, and even resizes profile images to the right dimensions. You’ll also get gentle reminders when your branding is outdated, so your digital presence always stays fresh and consistent.</p>
+</div>
+<button aria-controls="hiw-extra-3" aria-expanded="false" class="hiw-toggle">Tell me more</button>
+</article>
+</div>
+</section>
+<section aria-labelledby="who-heading" class="who">
+<h2 class="who-title" id="who-heading">Who’s FRNK for?</h2>
+<p class="who-blurb">Anyone managing multiple profiles who wants them consistent.</p>
+<div class="who-grid">
+<article class="who-card"><h3>Social Media Managers</h3><p>Keep clients’ profiles aligned across platforms with one interface.</p></article>
+<article class="who-card"><h3>Freelancers &amp; Founders</h3><p>Update your role, bio, and links once—reflect it everywhere.</p></article>
+<article class="who-card"><h3>Creators &amp; Influencers</h3><p>Stay on-brand from Instagram to TikTok to X without manual edits.</p></article>
+<article class="who-card"><h3>Personal Use</h3><p>Make your online identity uniform across the profiles you care about.</p></article>
+</div>
+</section>
+<footer class="site-foot">
+<p>© <span id="year">2025</span> FRNK. All rights reserved.</p>
+<p class="handle">@frnk.global</p>
+<p class="foot-links"><a href="/privacy.html" style="color:#444;">Privacy Policy</a> · <a href="/terms.html">Terms &amp; Conditions</a></p>
+</footer>
+</div>
+<script>
   (function(){
     function bind(){
       document.querySelectorAll('.hiw-toggle').forEach(function(btn){
@@ -176,9 +154,8 @@
     if (document.readyState === 'loading'){document.addEventListener('DOMContentLoaded', bind);} else {bind();}
   })();
   </script>
-
-  <!-- Waitlist animated form -->
-  <script>
+<!-- Waitlist animated form -->
+<script>
   (function(){
     function initWaitlist(){
       var form = document.getElementById('waitlist-form');
@@ -196,9 +173,8 @@
     if (document.readyState === 'loading'){document.addEventListener('DOMContentLoaded', initWaitlist);} else {initWaitlist();}
   })();
   </script>
-
-  <!-- Logo animation trigger -->
-  <script>
+<!-- Logo animation trigger -->
+<script>
   (function(){
     function run(){ requestAnimationFrame(function(){ document.body.classList.add('logo-animate'); }); }
     if (document.fonts && document.fonts.ready) { document.fonts.ready.then(run); }
@@ -206,9 +182,8 @@
     else { run(); }
   })();
   </script>
-
-  <!-- UTM capture -->
-  <script>
+<!-- UTM capture -->
+<script>
     (function(){
       var params = new URLSearchParams(location.search);
       ['utm_source','utm_medium','utm_campaign'].forEach(function(k){
@@ -217,9 +192,8 @@
       });
     })();
   </script>
-
-  <!-- Fan-out to Google Sheets (no Formspree webhooks needed) -->
-  <script>
+<!-- Fan-out to Google Sheets (no Formspree webhooks needed) -->
+<script>
     (function(){
       var form = document.getElementById('waitlist-form');
       if (!form) return;
