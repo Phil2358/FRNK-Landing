@@ -67,6 +67,36 @@
   font-size: 1rem;
   color: inherit;
 }
+</style><style>
+/* Uniform field styling to match email input */
+#waitlist-form .field-wrapper input[type="email"],
+#waitlist-form .field-wrapper input[type="text"],
+#waitlist-form .field-wrapper select,
+#waitlist-form .field-wrapper textarea {
+  font-family: inherit !important;
+  font-size: 1rem !important;
+  color: inherit !important;
+  background: #ffffff !important;
+  border: 1px solid rgba(0,0,0,0.18) !important;
+  border-radius: 16px !important;
+  padding: 12px 16px !important;
+  line-height: 1.4 !important;
+  outline: none !important;
+}
+
+/* Remove native quirks on selects so they match inputs better */
+#waitlist-form .field-wrapper select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #ffffff !important;
+}
+
+/* Ensure textarea doesn't switch to a different font */
+#waitlist-form .field-wrapper textarea {
+  font-family: inherit !important;
+  resize: vertical;
+}
 </style></head>
 <body>
 <div class="page-card">
