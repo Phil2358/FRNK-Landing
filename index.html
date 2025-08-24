@@ -50,10 +50,6 @@
 .hint { color:#6b6b6b; display:block; margin-top:6px; font-size:12px; }
 .button { width:100%; max-width:280px; margin:12px auto 0; display:block; }
 @media (min-width:600px){ .button{ width:auto; } }
-</style><style>
-/* Smooth collapsible waitlist */
-.collapse{max-height:0; overflow:hidden; transition:max-height 420ms ease, opacity 240ms ease, transform 240ms ease; opacity:0; transform:translateY(-4px);}
-.collapse.open{max-height:1200px; opacity:1; transform:none;}
 </style></head>
 <body>
 <div class="page-card">
@@ -62,9 +58,9 @@
 <p class="domain">thefrnk.com</p>
 <p class="tagline">One platform.<br/>Uniform profiles.</p>
 <!-- WAITLIST FORM (Formspree submit + Google Sheets fan-out) -->
-<div class="collapse" id="waitlist-collapsible"><form action="https://formspree.io/f/mwpqjbzv" aria-label="Join waitlist form" class="cta" id="waitlist-form" method="POST"><input id="utm_source" name="utm_source" type="hidden"/><input id="utm_medium" name="utm_medium" type="hidden"/><input id="utm_campaign" name="utm_campaign" type="hidden"/><input id="gs_webhook" type="hidden" value="https://script.google.com/macros/s/AKfycbwDvyBeO1SpSUO0_9gxaAZN9K_67mtfOXq__HkVosypqDYXAXPaN5aox-BHVfyeTpfZ4A/exec"/>
+<form action="https://formspree.io/f/mwpqjbzv" aria-label="Join waitlist form" class="cta" id="waitlist-form" method="POST"><input id="utm_source" name="utm_source" type="hidden"/><input id="utm_medium" name="utm_medium" type="hidden"/><input id="utm_campaign" name="utm_campaign" type="hidden"/><input id="gs_webhook" type="hidden" value="https://script.google.com/macros/s/AKfycbwDvyBeO1SpSUO0_9gxaAZN9K_67mtfOXq__HkVosypqDYXAXPaN5aox-BHVfyeTpfZ4A/exec"/>
 <button class="btn" id="waitlist-button" type="button">Join Waitlist</button>
-<div class="form-group"><label for="email">Email</label><input autocomplete="email" id="email" inputmode="email" name="email" placeholder="you@brand.com" required="True" type="email"/></div><div class="form-group"><label for="primary-platform">Primary platform</label><select id="primary-platform" name="primary_platform" required="True"><option disabled="True" selected="True" value="">Select your primary platform</option><option value="Instagram">Instagram</option><option value="TikTok">TikTok</option><option value="LinkedIn">LinkedIn</option><option value="Facebook">Facebook</option><option value="Twitter (X)">Twitter (X)</option><option value="Other">Other</option></select><small class="hint">Pick the one you update or rely on most.</small></div><div class="form-group" id="other-platform-group" style="display:none;"><label for="other-platform">Other platform</label><input id="other-platform" name="other_platform" placeholder="e.g., Behance, GitHub, Pinterest…" type="text"/></div><button class="button" type="submit">Join Waitlist</button></form></div>
+<div class="form-group"><label for="email">Email</label><input autocomplete="email" id="email" inputmode="email" name="email" placeholder="you@brand.com" required="True" type="email"/></div><div class="form-group"><label for="primary-platform">Primary platform</label><select id="primary-platform" name="primary_platform" required="True"><option disabled="True" selected="True" value="">Select your primary platform</option><option value="Instagram">Instagram</option><option value="TikTok">TikTok</option><option value="LinkedIn">LinkedIn</option><option value="Facebook">Facebook</option><option value="Twitter (X)">Twitter (X)</option><option value="Other">Other</option></select><small class="hint">Pick the one you update or rely on most.</small></div><div class="form-group" id="other-platform-group" style="display:none;"><label for="other-platform">Other platform</label><input id="other-platform" name="other_platform" placeholder="e.g., Behance, GitHub, Pinterest…" type="text"/></div><button class="button" type="submit">Join Waitlist</button></form>
 </header>
 <hr class="divider"/>
 <section aria-label="How it Works" id="how">
@@ -212,24 +208,5 @@
     toggle();
   }
 })();
-</script><script>
-(function(){
-  function openWaitlist(){
-    var c = document.getElementById('waitlist-collapsible');
-    if(c){ c.classList.add('open'); }
-    var w = document.getElementById('waitlist');
-    if(w){ w.scrollIntoView({behavior:'smooth', block:'start'}); }
-  }
-  // any link to #waitlist triggers open
-  document.querySelectorAll('a[href="#waitlist"]').forEach(function(a){
-    a.addEventListener('click', function(e){
-      e.preventDefault();
-      openWaitlist();
-      // also update URL hash
-      history.replaceState(null, '', '#waitlist');
-    });
-  });
-  // open if URL already has #waitlist
-  if(location.hash === '#waitlist'){ openWaitlist(); }
-})();</script></body>
+</script></body>
 </html>
