@@ -8,7 +8,7 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="styles.css?v=fontmatch1" rel="stylesheet">
+<link href="styles.css?v=fontmatch1" rel="stylesheet"/>
 <style>
     .site-foot a,
     .site-foot a:visited,
@@ -39,15 +39,20 @@
     /* Subtle appearance for labels that were previously visually-hidden */
     label { font-weight: 600; display: block; margin-bottom: 6px; }
   </style>
-</link><meta content="FRNK keeps your bios consistent across platforms, tracks clicks with a single link, and makes updates easy. Run your bio like a campaign." name="description"/></head>
+<meta content="FRNK keeps your bios consistent across platforms, tracks clicks with a single link, and makes updates easy. Run your bio like a campaign." name="description"/><style>
+/* FRNK white field cards */
+.frnk-cards{display:grid;grid-template-columns:1fr;gap:12px;margin:12px 0;}
+.frnk-card{background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:16px;padding:16px}
+@media(min-width:720px){.frnk-cards{grid-template-columns:repeat(2,1fr)}}
+</style></head>
 <body>
 <div class="page-card">
 <header class="hero">
-<h1 aria-label="FRNK" class="logo"><span>F</span><span>R</span><span>N</span><span>K</span></h1>
-<p class="domain">thefrnk.com</p>
+<h1 aria-label="FRNK" class="logo">Run your bios like campaigns.</h1>
+<p class="domain">The bio field on every platform is ad space for your brand. FRNK keeps those bios consistent, tracks clicks, and makes updates easy.</p>
 <p class="tagline">The bio field on every platform is ad space for your brand. FRNK keeps those bios consistent, tracks clicks, and makes updates easy.</p>
 <!-- WAITLIST FORM (Formspree submit + Google Sheets fan-out) -->
-<section id="benefits"><h2>Why use FRNK?</h2><ul><li><strong>Consistency: </strong>All your bios say the same thing everywhere.</li><li><strong>Analytics: </strong>Know which platform’s bio link actually drives clicks.</li><li><strong>Speed: </strong>Update once and apply in minutes across platforms.</li><li><strong>Reminders: </strong>Get nudges when a promo is outdated or a bio drifts off‑message.</li></ul><h3>Use cases</h3><ul><li>Launch a product — change your CTA once and apply across all platforms fast.</li><li>Run a promo — track how many clicks came from Instagram vs TikTok.</li><li>Manage clients — keep dozens of client bios aligned and report results.</li><li>Content push — swap to “New video out now” and measure engagement.</li></ul></section><form action="https://formspree.io/f/mwpqjbzv" aria-label="Join waitlist form" class="cta" id="waitlist-form" method="POST">
+<section id="benefits"><h3>Use cases</h3><div class="frnk-cards"><div class="frnk-card"><h3>Launch a product</h3><p>Change your CTA once and apply across all platforms fast.</p></div><div class="frnk-card"><h3>Run a promo</h3><p>Compare clicks from Instagram vs. TikTok to see what works.</p></div><div class="frnk-card"><h3>Manage clients</h3><p>Keep dozens of client bios aligned and report results.</p></div><div class="frnk-card"><h3>Content push</h3><p>Swap to “New video out now” and measure engagement.</p></div></div></section><form action="https://formspree.io/f/mwpqjbzv" aria-label="Join waitlist form" class="cta" id="waitlist-form" method="POST">
 <!-- Email (always visible) -->
 <div class="field-wrapper">
 <label for="email">Email</label>
@@ -92,9 +97,9 @@
 <input id="utm_medium" name="utm_medium" type="hidden"/>
 <input id="utm_campaign" name="utm_campaign" type="hidden"/>
 <!-- Hidden Google Sheets webhook URL (used by fan-out script) -->
-<input id="gs_webhook" type="hidden" value="https://script.google.com/macros/s/AKfycbwDvyBeO1SpSUO0_9gxaAZN9K_67mtfOXq__HkVosypqDYXAXPaN5aox-BHVfyeTpfZ4A/exec">
+<input id="gs_webhook" type="hidden" value="https://script.google.com/macros/s/AKfycbwDvyBeO1SpSUO0_9gxaAZN9K_67mtfOXq__HkVosypqDYXAXPaN5aox-BHVfyeTpfZ4A/exec"/>
 <button class="btn" id="waitlist-button" type="button">Join Waitlist</button>
-</input></form>
+</form>
 </header>
 <hr class="divider"/>
 <section aria-label="How it Works" id="how">
