@@ -4,11 +4,11 @@
 <head>
 <meta charset="utf-8"/>
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<title>FRNK – One platform. Uniform profiles.</title>
+<title>FRNK — The bio field on every platform is ad space for your brand.</title>
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="styles.css?v=fontmatch1" rel="stylesheet"/>
+<link href="styles.css?v=fontmatch1" rel="stylesheet">
 <style>
     .site-foot a,
     .site-foot a:visited,
@@ -39,77 +39,19 @@
     /* Subtle appearance for labels that were previously visually-hidden */
     label { font-weight: 600; display: block; margin-bottom: 6px; }
   </style>
-<style>
-/* FRNK v1.2 tune-ups */
-/* Center the form in one column */
-#waitlist-form.cta{max-width:560px;margin:0 auto;}
-/* Make the grouped questions reveal top-to-bottom, not sideways */
-#waitlist-form .extra{max-height:0; overflow:hidden; opacity:0; transform:none !important; transition:max-height 420ms ease, opacity 240ms ease;}
-#waitlist-form.expanded .extra{max-height:1200px; opacity:1;}
-/* Ensure two-col stacks into one column */
-#waitlist-form .two-col{display:grid;grid-template-columns:1fr;gap:12px;}
-</style><style>
-/* Match select dropdown font to main body text */
-#waitlist-form select {
-  font-family: inherit;
-  font-size: 1rem;
-  color: inherit;
-}
-#waitlist-form option {
-  color: #222;
-}
-</style><style>
-/* Match select and input font to main body text */
-#waitlist-form select,
-#waitlist-form input#other-platform,
-#waitlist-form textarea#notes {
-  font-family: inherit;
-  font-size: 1rem;
-  color: inherit;
-}
-</style><style>
-/* Uniform field styling to match email input */
-#waitlist-form .field-wrapper input[type="email"],
-#waitlist-form .field-wrapper input[type="text"],
-#waitlist-form .field-wrapper select,
-#waitlist-form .field-wrapper textarea {
-  font-family: inherit !important;
-  font-size: 1rem !important;
-  color: inherit !important;
-  background: #ffffff !important;
-  border: 1px solid rgba(0,0,0,0.18) !important;
-  border-radius: 16px !important;
-  padding: 12px 16px !important;
-  line-height: 1.4 !important;
-  outline: none !important;
-}
-
-/* Remove native quirks on selects so they match inputs better */
-#waitlist-form .field-wrapper select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background-color: #ffffff !important;
-}
-
-/* Ensure textarea doesn't switch to a different font */
-#waitlist-form .field-wrapper textarea {
-  font-family: inherit !important;
-  resize: vertical;
-}
-</style></head>
+</link><meta content="FRNK keeps your bios consistent across platforms, tracks clicks with a single link, and makes updates easy. Run your bio like a campaign." name="description"/></head>
 <body>
 <div class="page-card">
 <header class="hero">
 <h1 aria-label="FRNK" class="logo"><span>F</span><span>R</span><span>N</span><span>K</span></h1>
 <p class="domain">thefrnk.com</p>
-<p class="tagline">One platform.<br/>Uniform profiles.</p>
+<p class="tagline">The bio field on every platform is ad space for your brand. FRNK keeps those bios consistent, tracks clicks, and makes updates easy.</p>
 <!-- WAITLIST FORM (Formspree submit + Google Sheets fan-out) -->
-<form action="https://formspree.io/f/mwpqjbzv" aria-label="Join waitlist form" class="cta" id="waitlist-form" method="POST">
+<section id="benefits"><h2>Why use FRNK?</h2><ul><li><strong>Consistency: </strong>All your bios say the same thing everywhere.</li><li><strong>Analytics: </strong>Know which platform’s bio link actually drives clicks.</li><li><strong>Speed: </strong>Update once and apply in minutes across platforms.</li><li><strong>Reminders: </strong>Get nudges when a promo is outdated or a bio drifts off‑message.</li></ul><h3>Use cases</h3><ul><li>Launch a product — change your CTA once and apply across all platforms fast.</li><li>Run a promo — track how many clicks came from Instagram vs TikTok.</li><li>Manage clients — keep dozens of client bios aligned and report results.</li><li>Content push — swap to “New video out now” and measure engagement.</li></ul></section><form action="https://formspree.io/f/mwpqjbzv" aria-label="Join waitlist form" class="cta" id="waitlist-form" method="POST">
 <!-- Email (always visible) -->
 <div class="field-wrapper">
 <label for="email">Email</label>
-<input aria-label="Email address" id="email" name="email" required="" type="email"/>
+<input aria-label="Email address" id="email" name="email" placeholder="you@brand.com" required="" type="email"/>
 </div>
 <!-- Grouped questions (smooth reveal) -->
 <div class="two-col extra" style="--i:1">
@@ -128,12 +70,20 @@
 </div>
 <!-- Q2: willingness to pay -->
 <div class="field-wrapper">
+<fieldset aria-label="Would you pay for automated profile sync?">
+<legend>Would you pay for automated profile sync?</legend>
+<div class="radios">
+<label><input name="pay_for_auto_sync" required="" type="radio" value="Yes"/> Yes</label>
+<label><input name="pay_for_auto_sync" type="radio" value="Maybe"/> Maybe</label>
+<label><input name="pay_for_auto_sync" type="radio" value="No"/> No</label>
+</div>
+</fieldset>
 </div>
 </div>
 <!-- Optional: notes (full width) -->
-<div class="field-wrapper extra" id="other-platform-group" style="display:none;">
-<label for="notes">Other platform</label>
-<textarea id="notes" name="notes" rows="3"></textarea>
+<div class="field-wrapper extra" style="--i:2">
+<label for="notes">Anything else we should know?</label>
+<textarea id="notes" name="notes" placeholder="Your biggest headache with profiles…" rows="3"></textarea>
 </div>
 <!-- Spam trap -->
 <input autocomplete="off" name="_gotcha" style="display:none" tabindex="-1" type="text"/>
@@ -142,9 +92,9 @@
 <input id="utm_medium" name="utm_medium" type="hidden"/>
 <input id="utm_campaign" name="utm_campaign" type="hidden"/>
 <!-- Hidden Google Sheets webhook URL (used by fan-out script) -->
-<input id="gs_webhook" type="hidden" value="https://script.google.com/macros/s/AKfycbwDvyBeO1SpSUO0_9gxaAZN9K_67mtfOXq__HkVosypqDYXAXPaN5aox-BHVfyeTpfZ4A/exec"/>
+<input id="gs_webhook" type="hidden" value="https://script.google.com/macros/s/AKfycbwDvyBeO1SpSUO0_9gxaAZN9K_67mtfOXq__HkVosypqDYXAXPaN5aox-BHVfyeTpfZ4A/exec">
 <button class="btn" id="waitlist-button" type="button">Join Waitlist</button>
-</form>
+</input></form>
 </header>
 <hr class="divider"/>
 <section aria-label="How it Works" id="how">
@@ -176,16 +126,7 @@
 </article>
 </div>
 </section>
-<section aria-labelledby="who-heading" class="who">
-<h2 class="who-title" id="who-heading">Who’s FRNK for?</h2>
-<p class="who-blurb">Anyone managing multiple profiles who wants them consistent.</p>
-<div class="who-grid">
-<article class="who-card"><h3>Social Media Managers</h3><p>Keep clients’ profiles aligned across platforms with one interface.</p></article>
-<article class="who-card"><h3>Freelancers &amp; Founders</h3><p>Update your role, bio, and links once—reflect it everywhere.</p></article>
-<article class="who-card"><h3>Creators &amp; Influencers</h3><p>Stay on-brand from Instagram to TikTok to X without manual edits.</p></article>
-<article class="who-card"><h3>Personal Use</h3><p>Make your online identity uniform across the profiles you care about.</p></article>
-</div>
-</section>
+<section aria-labelledby="who-heading" class="who"><h2 class="who-title" id="who-heading">Who’s FRNK for?</h2><h3>Creators &amp; Influencers</h3><p>Turn your bios into a growth channel. Swap CTAs for new videos, drops, or promos and see what converts.</p><h3>Startup Founders &amp; Indie Hackers</h3><p>Keep launches and offers consistent across LinkedIn, X, Instagram, TikTok — update in minutes.</p><h3>Agencies &amp; Social Managers</h3><p>Run bio campaigns at scale across many clients. Update CTAs everywhere and prove ROI with click stats.</p></section>
 <footer class="site-foot">
 <p>© <span id="year">2025</span> FRNK. All rights reserved.</p>
 <p class="handle">@frnk.global</p>
@@ -279,20 +220,5 @@
       });
     })();
   </script>
-<script>
-(function(){
-  var sel = document.getElementById('platform_preferred');
-  var grp = document.getElementById('other-platform-group');
-  function toggle(){
-    if(!sel || !grp) return;
-    var v = (sel.value || '').toLowerCase();
-    grp.style.display = (v === 'other') ? '' : 'none';
-  }
-  if(sel){
-    sel.addEventListener('change', toggle);
-    // initial
-    toggle();
-  }
-})();
-</script></body>
+</body>
 </html>
