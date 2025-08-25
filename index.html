@@ -62,8 +62,6 @@
 #waitlist-form.expanded .extra{max-height:1200px;opacity:1}
 #waitlist-form .button{display:block;margin:14px auto 0}
 </style><style>
-section > h2 {text-align:center;}
-</style><style>
 #waitlist-form{max-width:560px;margin:0 auto}
 #waitlist-form .extra{max-height:0;overflow:hidden;opacity:0;transition:max-height 420ms ease,opacity 240ms ease}
 #waitlist-form.expanded .extra{max-height:1200px;opacity:1}
@@ -86,6 +84,15 @@ section > h2 {text-align:center;}
 #waitlist-form .button:hover{ transform: translateY(-1px); box-shadow: 0 10px 22px rgba(0,0,0,0.12); }
 #waitlist-form .button:active{ transform: translateY(0); box-shadow: 0 6px 14px rgba(0,0,0,0.10); opacity:0.95; }
 #waitlist-form .button[disabled]{ opacity:0.6; cursor:not-allowed; }
+</style><style>
+/* Uniform styling for all section titles */
+section > h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 3.5rem;  /* consistent space above */
+  margin-bottom: 2rem; /* consistent space below */
+}
 </style></head>
 <body>
 <div class="page-card">
