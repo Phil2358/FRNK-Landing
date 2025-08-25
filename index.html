@@ -55,13 +55,6 @@
 }
 #waitlist-form .button{display:block;margin:14px auto 0}
 </style><style>
-/* Bottom waitlist section */
-#waitlist-section{margin:32px 0}
-#waitlist-form.cta{max-width:560px;margin:0 auto;text-align:left}
-#waitlist-form .extra{max-height:0;overflow:hidden;opacity:0;transition:max-height 420ms ease,opacity 240ms ease}
-#waitlist-form.expanded .extra{max-height:1200px;opacity:1}
-#waitlist-form .button{display:block;margin:14px auto 0}
-</style><style>
 #waitlist-form{max-width:560px;margin:0 auto}
 #waitlist-form .extra{max-height:0;overflow:hidden;opacity:0;transition:max-height 420ms ease,opacity 240ms ease}
 #waitlist-form.expanded .extra{max-height:1200px;opacity:1}
@@ -85,15 +78,22 @@
 #waitlist-form .button:active{ transform: translateY(0); box-shadow: 0 6px 14px rgba(0,0,0,0.10); opacity:0.95; }
 #waitlist-form .button[disabled]{ opacity:0.6; cursor:not-allowed; }
 </style><style>
-/* Authoritative section spacing */
-section { margin-top: 4rem; margin-bottom: 4rem; }
-section > h2 { font-size: 1.75rem; font-weight: 700; text-align: center; margin-bottom: 2rem; }
+/* Master spacing rules based on reference rhythm */
+section {
+  margin-top: 4rem !important;
+  margin-bottom: 4rem !important;
+}
+section > h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 2rem !important; /* space between title and content */
+}
 
-/* Override legacy waitlist spacing */
-#waitlist-section { margin: 4rem 0 !important; }
-
-/* Normalize cards' outer margin so top spacing is consistent under titles */
-.frnk-cards { margin-top: 0; margin-bottom: 0; }
+/* Kill conflicting margins from card wrappers */
+.frnk-cards { margin-top: 0 !important; margin-bottom: 0 !important; }
+.frnk-card { margin-top: 0 !important; margin-bottom: 0 !important; }
+#waitlist-section { margin-top: 4rem !important; margin-bottom: 4rem !important; }
 </style></head>
 <body>
 <div class="page-card">
