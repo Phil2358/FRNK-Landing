@@ -203,5 +203,38 @@ section > h2 {
     else if (document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', run); }
     else { run(); }
   })();
-  </script></body>
+  </script><script>
+// Fan-out: send a copy of the waitlist submission to Google Sheets
+(function(){
+  function setupGSFanout(){
+    var form = document.getElementById('waitlist-form');
+    if(!form) return;
+    var hookInput = document.getElementById('gs_webhook');
+    var hook = hookInput ? hookInput.value : null;
+    if(!hook) return;
+
+    form.addEventListener('submit', function(){
+      try{
+        var fd = new FormData(form);
+        // Add a few meta fields
+        fd.append('_ts', new Date().toISOString());
+        fd.append('_page', location.href);
+        fd.append('_ua', navigator.userAgent);
+        // Prefer sendBeacon (non-blocking)
+        if (navigator.sendBeacon){
+          var params = new URLSearchParams();
+          fd.forEach(function(v,k){ params.append(k, v); });
+          var blob = new Blob([params.toString()], {type:'application/x-www-form-urlencoded'});
+          navigator.sendBeacon(hook, blob);
+        } else {
+          // Fallback: fire-and-forget
+          fetch(hook, { method:'POST', body: fd, mode:'no-cors' });
+        }
+      }catch(e){ /* swallow */ }
+    }, { passive: true });
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', setupGSFanout); }
+  else { setupGSFanout(); }
+})();
+</script></body>
 </html>
