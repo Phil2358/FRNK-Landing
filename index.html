@@ -86,6 +86,13 @@ section > h2 {text-align:center;}
 #waitlist-form .button:hover{ transform: translateY(-1px); box-shadow: 0 10px 22px rgba(0,0,0,0.12); }
 #waitlist-form .button:active{ transform: translateY(0); box-shadow: 0 6px 14px rgba(0,0,0,0.10); opacity:0.95; }
 #waitlist-form .button[disabled]{ opacity:0.6; cursor:not-allowed; }
+</style><style>
+/* Minimal fallback for FRNK hero effect */
+h1.logo{opacity:0; transform: translateY(8px); transition: opacity .6s ease, transform .6s ease;}
+body.logo-animate h1.logo{opacity:1; transform:none;}
+@media (prefers-reduced-motion: reduce){
+  h1.logo{transition:none; transform:none; opacity:1;}
+}
 </style></head>
 <body>
 <div class="page-card">
@@ -123,7 +130,6 @@ section > h2 {text-align:center;}
   </script>
 <!-- Waitlist animated form -->
 <!-- Logo animation trigger -->
-
 <!-- UTM capture -->
 <script>
     (function(){
