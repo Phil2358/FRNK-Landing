@@ -63,6 +63,29 @@
 #waitlist-form .button{display:block;margin:14px auto 0}
 </style><style>
 section > h2 {text-align:center;}
+</style><style>
+#waitlist-form{max-width:560px;margin:0 auto}
+#waitlist-form .extra{max-height:0;overflow:hidden;opacity:0;transition:max-height 420ms ease,opacity 240ms ease}
+#waitlist-form.expanded .extra{max-height:1200px;opacity:1}
+</style><style>
+#waitlist-form .button{
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  background:#222;
+  color:#fff;
+  border:none;
+  border-radius:999px;
+  padding:12px 18px;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.10);
+  cursor:pointer;
+  transition: transform 120ms ease, box-shadow 200ms ease, opacity 200ms ease;
+  display:block; margin:14px auto 0;
+}
+#waitlist-form .button:hover{ transform: translateY(-1px); box-shadow: 0 10px 22px rgba(0,0,0,0.12); }
+#waitlist-form .button:active{ transform: translateY(0); box-shadow: 0 6px 14px rgba(0,0,0,0.10); opacity:0.95; }
+#waitlist-form .button[disabled]{ opacity:0.6; cursor:not-allowed; }
 </style></head>
 <body>
 <div class="page-card">
@@ -73,7 +96,7 @@ section > h2 {text-align:center;}
 </header>
 <hr class="divider"/>
 <section aria-labelledby="who-heading" class="who"><h2 class="who-title" id="who-heading">Who’s FRNK for?</h2><div class="frnk-cards"><div class="frnk-card"><h3>Creators &amp; Influencers</h3><p>Turn your bios into a growth channel. Swap CTAs for new videos, drops, or promos and see what converts.</p></div><div class="frnk-card"><h3>Agencies &amp; Social Managers</h3><p>Manage multiple clients. Keep bios aligned, update promos quickly, and report results with clarity.</p></div><div class="frnk-card"><h3>Local Businesses (cafés, rentals, shops)</h3><p>Turn your profiles into free ad space. Update opening hours, seasonal offers, or discounts once and apply across all platforms.</p></div><div class="frnk-card"><h3>Startup Founders &amp; Solo Entrepreneurs</h3><p>Keep launches and offers consistent across LinkedIn, Instagram, TikTok, X — update in minutes.</p></div></div></section>
-<section id="waitlist-section"><form action="https://formspree.io/f/mwpqjbzv" aria-label="Join waitlist form" class="cta cta" id="waitlist-form" method="POST"><input id="utm_source" name="utm_source" type="hidden"/><input id="utm_medium" name="utm_medium" type="hidden"/><input id="utm_campaign" name="utm_campaign" type="hidden"/><input id="gs_webhook" type="hidden" value="https://script.google.com/macros/s/AKfycbwDvyBeO1SpSUO0_9gxaAZN9K_67mtfOXq__HkVosypqDYXAXPaN5aox-BHVfyeTpfZ4A/exec"/><div class="extra"><div class="field-wrapper"><label for="email">Email</label><input autocomplete="email" id="email" inputmode="email" name="email" required="True" type="email"/></div><div class="field-wrapper"><label for="platform_preferred">Primary platform</label><select id="platform_preferred" name="platform_preferred"><option disabled="True" selected="True" value="">Select your primary platform</option><option value="Instagram">Instagram</option><option value="TikTok">TikTok</option><option value="LinkedIn">LinkedIn</option><option value="Facebook">Facebook</option><option value="Twitter (X)">Twitter (X)</option><option value="Other">Other</option></select></div><div class="field-wrapper" id="other-platform-group" style="display:none;"><label for="other-platform">Other platform</label><input id="other-platform" name="other_platform" type="text"/></div></div><button class="button" type="submit">Join Waitlist</button></form></section><section aria-label="How it Works" id="how"><h2 class="how-title">How it Works</h2><div class="frnk-cards"><div class="frnk-card"><h3>1) Create your campaign</h3><p>Write your master bio and CTA link in FRNK. We generate platform‑specific versions that respect length limits and emoji/formatting rules.</p></div><div class="frnk-card"><h3>2) Copy + Open</h3><p>Click a platform button (e.g., Copy + Open Instagram). FRNK auto‑copies the right text and opens that platform’s Edit Profile page. Paste, save, done.</p><p><small>Desktop opens the edit page in a new tab. On mobile, we open the app/profile so you tap “Edit Profile”, paste, and save.</small></p></div><div class="frnk-card"><h3>3) Check off &amp; stay aligned</h3><p>Mark each profile as updated and keep your Consistency Score high. FRNK flags length issues and reminds you when promos expire or bios drift.</p></div><div class="frnk-card"><h3>4) Track clicks</h3><p>Your CTA uses a single FRNK link with per‑platform tags. See which bio drives traffic by platform and date range—simple, actionable analytics.</p></div></div><div class="frnk-cards"></div></section><section id="benefits"><h2 style="text-align:center">Why use FRNK?</h2><div class="frnk-cards"><div class="frnk-card"><h3>Consistency</h3><p>All your bios say the same thing everywhere.</p></div><div class="frnk-card"><h3>Analytics</h3><p>See which platform’s bio link actually drives clicks.</p></div><div class="frnk-card"><h3>Speed</h3><p>Update once and apply in minutes across platforms.</p></div><div class="frnk-card"><h3>Reminders</h3><p>Get nudges when a promo is outdated or a bio drifts off‑message.</p></div></div></section><footer class="site-foot">
+<section aria-label="How it Works" id="how"><h2 class="how-title">How it Works</h2><div class="frnk-cards"><div class="frnk-card"><h3>1) Create your campaign</h3><p>Write your master bio and CTA link in FRNK. We generate platform‑specific versions that respect length limits and emoji/formatting rules.</p></div><div class="frnk-card"><h3>2) Copy + Open</h3><p>Click a platform button (e.g., Copy + Open Instagram). FRNK auto‑copies the right text and opens that platform’s Edit Profile page. Paste, save, done.</p><p><small>Desktop opens the edit page in a new tab. On mobile, we open the app/profile so you tap “Edit Profile”, paste, and save.</small></p></div><div class="frnk-card"><h3>3) Check off &amp; stay aligned</h3><p>Mark each profile as updated and keep your Consistency Score high. FRNK flags length issues and reminds you when promos expire or bios drift.</p></div><div class="frnk-card"><h3>4) Track clicks</h3><p>Your CTA uses a single FRNK link with per‑platform tags. See which bio drives traffic by platform and date range—simple, actionable analytics.</p></div></div><div class="frnk-cards"></div></section><section id="benefits"><h2 style="text-align:center">Why use FRNK?</h2><div class="frnk-cards"><div class="frnk-card"><h3>Consistency</h3><p>All your bios say the same thing everywhere.</p></div><div class="frnk-card"><h3>Analytics</h3><p>See which platform’s bio link actually drives clicks.</p></div><div class="frnk-card"><h3>Speed</h3><p>Update once and apply in minutes across platforms.</p></div><div class="frnk-card"><h3>Reminders</h3><p>Get nudges when a promo is outdated or a bio drifts off‑message.</p></div></div></section><section id="waitlist-section"><form action="https://formspree.io/f/mwpqjbzv" aria-label="Join waitlist form" class="cta cta" id="waitlist-form" method="POST"><input id="utm_source" name="utm_source" type="hidden"/><input id="utm_medium" name="utm_medium" type="hidden"/><input id="utm_campaign" name="utm_campaign" type="hidden"/><input id="gs_webhook" type="hidden" value="https://script.google.com/macros/s/AKfycbwDvyBeO1SpSUO0_9gxaAZN9K_67mtfOXq__HkVosypqDYXAXPaN5aox-BHVfyeTpfZ4A/exec"/><div class="extra"><div class="field-wrapper"><label for="email">Email</label><input autocomplete="email" id="email" inputmode="email" name="email" required="True" type="email"/></div><div class="field-wrapper"><label for="platform_preferred">Primary platform</label><select id="platform_preferred" name="platform_preferred"><option disabled="True" selected="True" value="">Select your primary platform</option><option value="Instagram">Instagram</option><option value="TikTok">TikTok</option><option value="LinkedIn">LinkedIn</option><option value="Facebook">Facebook</option><option value="Twitter (X)">Twitter (X)</option><option value="Other">Other</option></select></div><div class="field-wrapper" id="other-platform-group" style="display:none;"><label for="other-platform">Other platform</label><input id="other-platform" name="other_platform" type="text"/></div></div><button class="button" type="submit">Join Waitlist</button></form></section><footer class="site-foot">
 <p>© <span id="year">2025</span> FRNK. All rights reserved.</p>
 <p class="handle">@frnk.global</p>
 <p class="foot-links"><a href="/privacy.html" style="color:#444;">Privacy Policy</a> · <a href="/terms.html">Terms &amp; Conditions</a></p>
@@ -195,33 +218,29 @@ section > h2 {text-align:center;}
     // else allow native submit
   });
 })();</script><script>
-// FRNK waitlist one-click expand, smooth-scroll, second-click submit
+// FRNK waitlist one-click expand + smooth scroll + second-click submit
 (function(){
   var form = document.getElementById('waitlist-form');
   if(!form) return;
   var btn = form.querySelector('button.button');
   if(!btn) return;
   var email = form.querySelector('#email');
-  // start as a reveal button
+  // initial state
   btn.type = 'button';
   btn.textContent = 'Join Waitlist';
   btn.addEventListener('click', function(e){
     if(!form.classList.contains('expanded')){
       e.preventDefault();
       form.classList.add('expanded');
-      // smooth scroll the form into view
-      try { form.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch(e){}
-      // focus the first field after a short delay (so it's visible)
-      setTimeout(function(){ if(email) { try{ email.focus(); }catch(e){} } }, 350);
-      // change text
+      try { form.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch(_) {}
+      setTimeout(function(){ if(email) try{ email.focus(); }catch(_){} }, 350);
       btn.textContent = 'Submit';
-      // next click submits
       btn.type = 'submit';
       return;
     }
-    // Let native submit happen; add disabled state to prevent double submits
+    // submit branch
     btn.setAttribute('disabled','disabled');
-    setTimeout(function(){ try{ btn.removeAttribute('disabled'); }catch(e){} }, 2000);
+    setTimeout(function(){ try{ btn.removeAttribute('disabled'); }catch(_){ } }, 1800);
   });
 })();</script></body>
 </html>
