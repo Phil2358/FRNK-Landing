@@ -86,11 +86,20 @@ section > h2 {text-align:center;}
 #waitlist-form .button:hover{ transform: translateY(-1px); box-shadow: 0 10px 22px rgba(0,0,0,0.12); }
 #waitlist-form .button:active{ transform: translateY(0); box-shadow: 0 6px 14px rgba(0,0,0,0.10); opacity:0.95; }
 #waitlist-form .button[disabled]{ opacity:0.6; cursor:not-allowed; }
+</style><style>
+/* FRNK typing caret */
+#frnk-typing::after{
+  content: '\00a0'; /* non-breaking space for caret spacing */
+  border-right: 2px solid currentColor;
+  animation: frnk-caret 0.9s steps(1) infinite;
+  margin-left: 2px;
+}
+@keyframes frnk-caret { 50% { border-color: transparent; } }
 </style></head>
 <body>
 <div class="page-card">
 <header class="hero">
-<h1 aria-label="FRNK" class="logo">FRNK</h1><h2>Run your bios like campaigns.</h2>
+<h1 aria-label="FRNK" class="logo"><span id="frnk-typing"></span></h1><h2>Run your bios like campaigns.</h2>
 <p class="domain">The bio field on every platform is ad space for your brand. FRNK keeps those bios consistent, tracks clicks, and makes updates easy.</p>
 <!-- WAITLIST FORM (Formspree submit + Google Sheets fan-out) -->
 </header>
@@ -122,7 +131,6 @@ section > h2 {text-align:center;}
   })();
   </script>
 <!-- Waitlist animated form -->
-
 <!-- Logo animation trigger -->
 <script>
   (function(){
@@ -143,7 +151,6 @@ section > h2 {text-align:center;}
     })();
   </script>
 <!-- Fan-out to Google Sheets (no Formspree webhooks needed) -->
-
 <script>
     (function(){
       var sel = document.getElementById('platform_preferred');
@@ -198,5 +205,29 @@ section > h2 {text-align:center;}
   }
   if (document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', bind); }
   else { bind(); }
+})();</script><script>
+// FRNK hero typing effect (types 'FRNK' once)
+(function(){
+  function typeFRNK(){
+    var el = document.getElementById('frnk-typing');
+    if(!el) return;
+    var text = (el.parentElement && el.parentElement.getAttribute('aria-label')) || 'FRNK';
+    var i = 0;
+    el.textContent = '';
+    var speed = 90; // ms per char
+    var timer = setInterval(function(){
+      if(i < text.length){
+        el.textContent += text.charAt(i);
+        i++;
+      } else {
+        clearInterval(timer);
+      }
+    }, speed);
+  }
+  if(document.readyState === 'loading'){
+    document.addEventListener('DOMContentLoaded', typeFRNK);
+  } else {
+    typeFRNK();
+  }
 })();</script></body>
 </html>
