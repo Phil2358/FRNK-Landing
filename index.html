@@ -85,17 +85,15 @@
 #waitlist-form .button:active{ transform: translateY(0); box-shadow: 0 6px 14px rgba(0,0,0,0.10); opacity:0.95; }
 #waitlist-form .button[disabled]{ opacity:0.6; cursor:not-allowed; }
 </style><style>
-/* Consistent section spacing based on reference spacing */
-section {
-  margin-top: 4rem;   /* equal space before each section */
-  margin-bottom: 4rem; /* equal space after each section */
-}
-section > h2 {
-  font-size: 1.75rem;
-  font-weight: 700;
-  text-align: center;
-  margin-bottom: 2rem; /* space between title and content */
-}
+/* Authoritative section spacing */
+section { margin-top: 4rem; margin-bottom: 4rem; }
+section > h2 { font-size: 1.75rem; font-weight: 700; text-align: center; margin-bottom: 2rem; }
+
+/* Override legacy waitlist spacing */
+#waitlist-section { margin: 4rem 0 !important; }
+
+/* Normalize cards' outer margin so top spacing is consistent under titles */
+.frnk-cards { margin-top: 0; margin-bottom: 0; }
 </style></head>
 <body>
 <div class="page-card">
