@@ -463,10 +463,12 @@ main{
 /* How it Works centered single-column layout */
 .how-layout{
   display: grid;
-  gap: 16px;
-  max-width: clamp(320px, 92vw, 820px);
+  gap: 28px; /* more space between steps */
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0 16px; /* side padding for mobile */
   margin: 0 auto;
-  padding: 0;
 }
 
 .how-step h3{margin:0 0 6px;font-size:1.05rem;}
@@ -478,3 +480,62 @@ main{
 
 
 
+
+
+.how-step{padding-bottom:12px;}
+.how-step h3{display:flex;align-items:center;justify-content:flex-start;gap:8px;}
+
+
+/* Prevent mobile overflow */
+html, body {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+img, svg {
+  max-width: 100%;
+  height: auto;
+}
+
+
+/* Wrap long words to prevent overflow */
+html, body { overflow-wrap: anywhere; word-break: break-word; }
+
+
+/* Mobile footer stack */
+@media (max-width: 480px){
+  .footer-row{
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+  }
+  .footer-row .foot-left,
+  .footer-row .foot-center,
+  .footer-row .foot-right{
+    white-space: normal;
+    text-align: center;
+  }
+}
+
+
+/* Sticky CTA mobile wrap */
+@media (max-width: 420px){
+  #sticky-cta .sticky-wrap{
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+  }
+}
+
+
+/* Page card mobile padding */
+@media (max-width: 420px){
+  .page-card{ padding-left: 12px; padding-right: 12px; }
+}
+
+
+/* Grid overflow safety */
+.persona-grid, .frnk-cards, .faq-stack, .benefit-grid{
+  max-width: 100%;
+  overflow: visible;
+}
