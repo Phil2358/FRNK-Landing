@@ -589,3 +589,5 @@ html, body { overflow-wrap: anywhere; word-break: break-word; }
   opacity: 0.9;
 }
 .how-item-centered .aside{ opacity: .75; margin-top: .25rem; }
+
+html { scroll-behavior: smooth; }
