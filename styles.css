@@ -105,3 +105,75 @@ body.logo-animate .logo span:nth-child(4){ animation-delay: .21s; }
 @media (prefers-reduced-motion: reduce){
   .logo span{ opacity:1; transform:none; filter:none; animation:none !important; }
 }
+
+
+/* Simple hero waitlist form */
+#waitlist-form {
+  max-width: 480px;
+  margin: 2rem auto 0 auto;
+  display: grid;
+  gap: 14px;
+  text-align: left;
+}
+#waitlist-form .field-wrapper input {
+  width: 100%;
+  font: inherit;
+  color: inherit;
+  background: #fff;
+  border: 1px solid var(--edgeSoft, rgba(0,0,0,.08));
+  border-radius: 16px;
+  padding: 12px 16px;
+  box-sizing: border-box;
+}
+#waitlist-form label {
+  font-weight: 600;
+  font-size: 0.95rem;
+  margin-bottom: 4px;
+  display: block;
+}
+#waitlist-form .button {
+  display: block;
+  margin: 14px auto 0;
+}
+
+
+/* ===== FRNK v1.7 hero form overrides (works with new index) ===== */
+#waitlist-form.cta {
+  display: grid !important;
+  grid-auto-flow: row !important;
+  gap: 12px !important;
+  align-items: stretch !important;
+  justify-content: center !important;
+  max-width: 480px !important;
+  margin: 1.5rem auto 0 !important;
+}
+
+#waitlist-form .field-wrapper {
+  max-width: 100% !important;
+  overflow: visible !important;
+}
+
+#waitlist-form input[type="text"],
+#waitlist-form input[type="email"] {
+  width: 100% !important;
+  height: 48px !important;
+  padding: 0 16px !important;
+  border-radius: 16px !important;
+  border: 1px solid rgba(0,0,0,0.18) !important;
+  background: #fff !important;
+  box-sizing: border-box !important;
+  appearance: auto !important;
+  -webkit-appearance: auto !important;
+  -moz-appearance: auto !important;
+}
+
+#waitlist-form label {
+  font-weight: 600 !important;
+  margin: 4px 0 2px !important;
+}
+
+#waitlist-form .button {
+  display: inline-block !important;
+  margin: 8px auto 0 !important;
+}
+/* ===== End hero form overrides ===== */
