@@ -8,76 +8,13 @@
 <link href="https://fonts.googleapis.com" rel="preconnect"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&amp;display=swap" rel="stylesheet"/>
-<link href="styles.css?v=fontmatch1" rel="stylesheet"/>
-<style>
-    .site-foot a,
-    .site-foot a:visited,
-    .site-foot a:hover,
-    .site-foot a:active { color: #444 !important; text-decoration: none; }
-    .site-foot a:hover { text-decoration: underline; }
-
-    /* =============== Waitlist form: smooth + organized =============== */
-    #waitlist-form { max-width: 640px; margin: 0 auto; display: grid; gap: 16px; overflow: hidden; }
-    #waitlist-form .field-wrapper input,
-    #waitlist-form select,
-    #waitlist-form textarea { width: 100%; }
-
-    /* Initially only email field is visible */
-    #waitlist-form .extra { opacity: 0; transform: translateY(-6px); max-height: 0; pointer-events: none; overflow: hidden; }
-    #waitlist-form.expanded .extra { opacity: 1; transform: translateY(0); max-height: 400px; pointer-events: auto; transition: opacity .35s ease, transform .35s ease, max-height .45s ease; }
-    #waitlist-form.expanded .extra { transition-delay: calc(var(--i, 0) * 70ms); }
-
-    /* Two-column layout for questions on larger screens */
-    .two-col { display: grid; gap: 12px; }
-    @media (min-width: 640px){ .two-col { grid-template-columns: 1fr 1fr; } }
-
-    /* Radios inline and tidy */
-    fieldset { border: 0; padding: 0; margin: 0; }
-    fieldset legend { font-weight: 600; margin-bottom: 8px; }
-    .radios { display: flex; flex-wrap: wrap; gap: 14px; }
-
-    /* Subtle appearance for labels that were previously visually-hidden */
-    label { font-weight: 600; display: block; margin-bottom: 6px; }
-  </style>
+<link href="styles_clean.css?v=heroform1" rel="stylesheet"/>
 <meta content="FRNK keeps your bios consistent across platforms, tracks clicks with a single link, and makes updates easy. Run your bio like a campaign." name="description"/><style>
 /* FRNK white field cards */
 .frnk-cards{display:grid;grid-template-columns:1fr;gap:12px;margin:12px 0;}
 .frnk-card{background:#fff;border:1px solid rgba(0,0,0,0.08);border-radius:16px;padding:16px}
 @media(min-width:720px){.frnk-cards{grid-template-columns:repeat(2,1fr)}}
 </style><style>.button{display:inline-block;background:#222;color:#fff;padding:12px 18px;border-radius:999px;text-decoration:none}</style><style>
-.bottom-cta{display:flex;justify-content:center;margin:24px 0}
-#waitlist-form{max-width:560px;margin:0 auto}
-#waitlist-form .field-wrapper input[type="email"],
-#waitlist-form .field-wrapper input[type="text"],
-#waitlist-form .field-wrapper select{
-  font-family: inherit; font-size: 1rem; color: inherit;
-  background:#fff; border:1px solid rgba(0,0,0,0.18); border-radius:16px; padding:12px 16px;
-}
-#waitlist-form .button{display:block;margin:14px auto 0}
-</style><style>
-#waitlist-form{max-width:560px;margin:0 auto}
-#waitlist-form .extra{max-height:0;overflow:hidden;opacity:0;transition:max-height 420ms ease,opacity 240ms ease}
-#waitlist-form.expanded .extra{max-height:1200px;opacity:1}
-</style><style>
-#waitlist-form .button{
-  font-family: inherit;
-  font-size: 1rem;
-  font-weight: 700;
-  letter-spacing: 0.02em;
-  background:#222;
-  color:#fff;
-  border:none;
-  border-radius:999px;
-  padding:12px 18px;
-  box-shadow: 0 8px 18px rgba(0,0,0,0.10);
-  cursor:pointer;
-  transition: transform 120ms ease, box-shadow 200ms ease, opacity 200ms ease;
-  display:block; margin:14px auto 0;
-}
-#waitlist-form .button:hover{ transform: translateY(-1px); box-shadow: 0 10px 22px rgba(0,0,0,0.12); }
-#waitlist-form .button:active{ transform: translateY(0); box-shadow: 0 6px 14px rgba(0,0,0,0.10); opacity:0.95; }
-#waitlist-form .button[disabled]{ opacity:0.6; cursor:not-allowed; }
-</style><style>
 /* Master spacing rules based on reference rhythm */
 section {
   margin-top: 4rem !important;
@@ -102,112 +39,7 @@ section > h2 {
   margin-top: 0.5rem;
   text-align: center;
 }
-</style><style>
-/* Hero waitlist form layout */
-#waitlist-form {
-  max-width: 420px;
-  margin: 2rem auto 0 auto;
-  display: grid;
-  gap: 14px;
-  text-align: left;
-}
-
-#waitlist-form .field-wrapper input {
-  width: 100%;
-  font-family: inherit;
-  font-size: 1rem;
-  color: inherit;
-  background: #fff;
-  border: 1px solid rgba(0,0,0,0.18);
-  border-radius: 16px;
-  padding: 12px 16px;
-  box-sizing: border-box;
-}
-
-#waitlist-form label {
-  font-weight: 600;
-  font-size: 0.95rem;
-  margin-bottom: 4px;
-  display: block;
-}
-
-#waitlist-form .button {
-  display: block;
-  margin: 14px auto 0;
-}
-</style><style>
-/* Ensure hero form inputs are visible in all cases */
-#waitlist-form .field-wrapper { 
-  display: block !important; 
-  position: static !important; 
-}
-
-#waitlist-form input[type="text"],
-#waitlist-form input[type="email"] {
-  display: block !important;
-  opacity: 1 !important;
-  visibility: visible !important;
-  position: static !important;
-  clip: auto !important;
-  clip-path: none !important;
-  height: auto !important;
-  width: 100% !important;
-  max-width: 100% !important;
-}
-
-/* Provide a subtle visible border/background in case a global style overrides it */
-#waitlist-form input[type="text"],
-#waitlist-form input[type="email"] {
-  background: #fff !important;
-  border: 1px solid rgba(0,0,0,0.18) !important;
-  border-radius: 16px !important;
-  padding: 12px 16px !important;
-  box-sizing: border-box !important;
-}
-</style><style>
-/* Ultra-defensive reset for hero form visibility */
-#waitlist-form, #waitlist-form * {
-  visibility: visible !important;
-  opacity: 1 !important;
-}
-
-#waitlist-form .field-wrapper {
-  display: block !important;
-  position: relative !important;
-  transform: none !important;
-  max-height: none !important;
-  height: auto !important;
-  overflow: visible !important;
-  pointer-events: auto !important;
-}
-
-#waitlist-form label {
-  display: block !important;
-  margin: 6px 0 4px 0 !important;
-  font-weight: 600 !important;
-  color: inherit !important;
-}
-
-#waitlist-form input[type="text"],
-#waitlist-form input[type="email"] {
-  display: block !important;
-  height: 48px !important;
-  line-height: 48px !important;
-  padding: 0 16px !important;
-  border-radius: 16px !important;
-  border: 1px solid rgba(0,0,0,0.18) !important;
-  background: #fff !important;
-  box-sizing: border-box !important;
-  transform: none !important;
-  clip: auto !important;
-  clip-path: none !important;
-}
-
-#waitlist-form .button {
-  position: relative !important;
-  transform: none !important;
-}
-</style></head>
+</style><style>#waitlist-success{background:#e8f6ec;border:1px solid rgba(0,0,0,.06);border-radius:12px;padding:10px;}</style></head>
 <body>
 <div class="page-card">
 <header class="hero">
@@ -233,11 +65,11 @@ section > h2 {
     Add your email if you’d like to be notified when we go live.
     We respect your privacy: no spam, no selling your data, ever.
   </p>
-</form>
+</form><div id="waitlist-success" style="display:none; text-align:center; margin-top:1rem; font-weight:600; color:green;">Thanks — you're on the list! 🎉</div>
 </header>
 <hr class="divider"/>
 <section aria-labelledby="who-heading" class="who"><h2 class="who-title" id="who-heading">Who’s FRNK for?</h2><div class="frnk-cards"><div class="frnk-card"><h3>Creators &amp; Influencers</h3><p>Turn your bios into a growth channel. Swap CTAs for new videos, drops, or promos and see what converts.</p></div><div class="frnk-card"><h3>Agencies &amp; Social Managers</h3><p>Manage multiple clients. Keep bios aligned, update promos quickly, and report results with clarity.</p></div><div class="frnk-card"><h3>Local Businesses (cafés, rentals, shops)</h3><p>Turn your profiles into free ad space. Update opening hours, seasonal offers, or discounts once and apply across all platforms.</p></div><div class="frnk-card"><h3>Startup Founders &amp; Solo Entrepreneurs</h3><p>Keep launches and offers consistent across LinkedIn, Instagram, TikTok, X — update in minutes.</p></div></div></section>
-<section aria-label="How it Works" id="how"><h2 class="how-title">How it Works</h2><div class="frnk-cards"><div class="frnk-card"><h3>1) Create your campaign</h3><p>Write your master bio and CTA link in FRNK. We generate platform‑specific versions that respect length limits and emoji/formatting rules.</p></div><div class="frnk-card"><h3>2) Copy + Open</h3><p>Click a platform button (e.g., Copy + Open Instagram). FRNK auto‑copies the right text and opens that platform’s Edit Profile page. Paste, save, done.</p><p><small>Desktop opens the edit page in a new tab. On mobile, we open the app/profile so you tap “Edit Profile”, paste, and save.</small></p></div><div class="frnk-card"><h3>3) Check off &amp; stay aligned</h3><p>Mark each profile as updated and keep your Consistency Score high. FRNK flags length issues and reminds you when promos expire or bios drift.</p></div><div class="frnk-card"><h3>4) Track clicks</h3><p>Your CTA uses a single FRNK link with per‑platform tags. See which bio drives traffic by platform and date range—simple, actionable analytics.</p></div></div><div class="frnk-cards"></div></section><section id="benefits"><h2 style="text-align:center">Why use FRNK?</h2><div class="frnk-cards"><div class="frnk-card"><h3>Consistency</h3><p>All your bios say the same thing everywhere.</p></div><div class="frnk-card"><h3>Analytics</h3><p>See which platform’s bio link actually drives clicks.</p></div><div class="frnk-card"><h3>Speed</h3><p>Update once and apply in minutes across platforms.</p></div><div class="frnk-card"><h3>Reminders</h3><p>Get nudges when a promo is outdated or a bio drifts off‑message.</p></div></div></section><section id="waitlist-section"><div class="bottom-cta">Scroll to the top to join early access.</div></section><footer class="site-foot">
+<section aria-label="How it Works" id="how"><h2 class="how-title">How it Works</h2><div class="frnk-cards"><div class="frnk-card"><h3>1) Create your campaign</h3><p>Write your master bio and CTA link in FRNK. We generate platform‑specific versions that respect length limits and emoji/formatting rules.</p></div><div class="frnk-card"><h3>2) Copy + Open</h3><p>Click a platform button (e.g., Copy + Open Instagram). FRNK auto‑copies the right text and opens that platform’s Edit Profile page. Paste, save, done.</p><p><small>Desktop opens the edit page in a new tab. On mobile, we open the app/profile so you tap “Edit Profile”, paste, and save.</small></p></div><div class="frnk-card"><h3>3) Check off &amp; stay aligned</h3><p>Mark each profile as updated and keep your Consistency Score high. FRNK flags length issues and reminds you when promos expire or bios drift.</p></div><div class="frnk-card"><h3>4) Track clicks</h3><p>Your CTA uses a single FRNK link with per‑platform tags. See which bio drives traffic by platform and date range—simple, actionable analytics.</p></div></div><div class="frnk-cards"></div></section><section id="benefits"><h2 style="text-align:center">Why use FRNK?</h2><div class="frnk-cards"><div class="frnk-card"><h3>Consistency</h3><p>All your bios say the same thing everywhere.</p></div><div class="frnk-card"><h3>Analytics</h3><p>See which platform’s bio link actually drives clicks.</p></div><div class="frnk-card"><h3>Speed</h3><p>Update once and apply in minutes across platforms.</p></div><div class="frnk-card"><h3>Reminders</h3><p>Get nudges when a promo is outdated or a bio drifts off‑message.</p></div></div></section><section id="waitlist-section"><div class="bottom-cta"> </div></section><footer class="site-foot">
 <p>© <span id="year">2025</span> FRNK. All rights reserved.</p>
 <p class="handle">@frnk.global</p>
 <p class="foot-links"><a href="/privacy.html" style="color:#444;">Privacy Policy</a> · <a href="/terms.html">Terms &amp; Conditions</a></p>
@@ -287,52 +119,6 @@ section > h2 {
       if(sel){ sel.addEventListener('change', toggle); toggle(); }
     })();
     </script><script>
-// Single-source of truth: expand -> scroll -> focus -> switch to submit
-(function(){
-  function bind(){
-    var form = document.getElementById('waitlist-form');
-    if (!form) return;
-    if (form.__frnkBound) return; // guard
-    form.__frnkBound = true;
-
-    var btn = document.getElementById('waitlist-button') || form.querySelector('button.button');
-    var hasExtra = !!form.querySelector('.extra');
-    var email = document.getElementById('email');
-    if (!btn) return;
-
-    // initial state
-    btn.type = hasExtra ? 'button' : 'submit';
-    btn.textContent = btn.textContent || 'Join Early Access';
-
-    btn.addEventListener('click', function(e){
-      if(!hasExtra){ return; }
-      if (!form.classList.contains('expanded')){
-        e.preventDefault();
-        form.classList.add('expanded');
-        try { form.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch(e){}
-        setTimeout(function(){ try{ email && email.focus(); }catch(e){} }, 300);
-        btn.textContent = 'Submit';
-        btn.type = 'submit';
-      }
-      // else: native submit with browser validation
-    });
-
-    // If user presses Enter before expanding, expand first
-    form.addEventListener('submit', function(ev){
-      if(!hasExtra){ return; }
-      if (!form.classList.contains('expanded')){
-        ev.preventDefault();
-        form.classList.add('expanded');
-        try { form.scrollIntoView({ behavior: 'smooth', block: 'start' }); } catch(e){}
-        setTimeout(function(){ try{ email && email.focus(); }catch(e){} }, 300);
-        btn.textContent = 'Submit';
-        btn.type = 'submit';
-      }
-    });
-  }
-  if (document.readyState === 'loading'){ document.addEventListener('DOMContentLoaded', bind); }
-  else { bind(); }
-})();</script><script>
   (function(){
     function run(){ requestAnimationFrame(function(){ document.body.classList.add('logo-animate'); }); }
     if (document.fonts && document.fonts.ready) { document.fonts.ready.then(run); }
@@ -371,6 +157,57 @@ section > h2 {
   }
   if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', setupGSFanout); }
   else { setupGSFanout(); }
+})();
+</script><script>
+    (function(){
+      var form = document.getElementById('waitlist-form');
+      if (!form) return;
+      form.addEventListener('submit', async function(e){
+        e.preventDefault();
+        var fd = new FormData(form);
+        try {
+          let res = await fetch(form.action, { method:'POST', body:fd, headers:{'Accept':'application/json'} });
+          if(res.ok){
+            form.style.display = 'none';
+            var success = document.getElementById('waitlist-success');
+            if(success) success.style.display = 'block';
+          } else {
+            alert('Submission failed. Please try again.');
+          }
+        } catch(err){
+          alert('Network error. Please try again.');
+        }
+      });
+    })();
+    </script><script>
+(function(){
+  var form = document.getElementById('waitlist-form');
+  if(!form) return;
+  var success = document.getElementById('waitlist-success');
+
+  form.addEventListener('submit', async function(ev){
+    try{
+      ev.preventDefault();
+      var fd = new FormData(form);
+
+      // Attempt AJAX submit to Formspree
+      var resp = await fetch(form.action, { method:'POST', body: fd, headers: { 'Accept': 'application/json' } });
+      if (resp.ok){
+        // Show success message and reset fields
+        if(success){ success.style.display = 'block'; }
+        try{
+          var first = form.querySelector('#first-name'); if(first) first.value='';
+          var email = form.querySelector('#email'); if(email) email.value='';
+        }catch(e){}
+      }else{
+        // Fallback to native submit
+        form.submit();
+      }
+    }catch(e){
+      // If anything fails, do a normal submit
+      try{ form.submit(); }catch(_){}
+    }
+  }, { passive: false });
 })();
 </script></body>
 </html>
