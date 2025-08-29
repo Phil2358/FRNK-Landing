@@ -539,3 +539,53 @@ html, body { overflow-wrap: anywhere; word-break: break-word; }
   max-width: 100%;
   overflow: visible;
 }
+
+
+/* Share buttons under success message */
+.share-row{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+  justify-content:center;
+  margin-top:10px;
+}
+.share-btn{
+  display:inline-block;
+  background:#111;
+  color:#fff;
+  border:0;
+  border-radius:999px;
+  padding:8px 12px;
+  text-decoration:none;
+  font-weight:700;
+  box-shadow:0 6px 14px rgba(0,0,0,0.10);
+  cursor:pointer;
+  transition: transform .15s ease, box-shadow .2s ease, background .2s ease;
+}
+.share-btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(0,0,0,0.12);
+  background:#000;
+}
+
+
+/* Centered mini-feature list for "How it Works" */
+.how-list-centered{
+  max-width: 720px;
+  margin: 1.5rem auto;
+  display: grid;
+  gap: 1.5rem;
+  text-align: center;
+  padding: 0 16px;
+}
+.how-item-centered h3{
+  margin: 0 0 0.3rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.how-item-centered p{
+  margin: 0;
+  font-size: 1rem;
+  opacity: 0.9;
+}
+.how-item-centered .aside{ opacity: .75; margin-top: .25rem; }
